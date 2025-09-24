@@ -1,0 +1,144 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import './Skills.css';
+
+const Skills = () => {
+  const skillCategories = [
+    {
+      title: 'Full-Stack Development',
+      subcategories: [
+        {
+          subtitle: 'Frontend',
+          skills: ['HTML5', 'CSS3', 'JavaScript']
+        },
+        {
+          subtitle: 'Backend',
+          skills: ['Node.js', 'Java', 'Dart (Flutter)']
+        },
+        {
+          subtitle: 'Databases',
+          skills: ['MySQL', 'MongoDB', 'Firebase']
+        }
+      ]
+    },
+    {
+      title: 'Network & Security',
+      skills: [
+        'Networking fundamentals (CCNA)',
+        'Burp Suite',
+        'Wireshark',
+        'Kali Linux',
+        'VMware'
+      ]
+    },
+    {
+      title: 'Tools & Platforms',
+      skills: [
+        'GitHub',
+        'Docker',
+        'Postman',
+        'Figma',
+        'n8n'
+      ]
+    },
+    {
+      title: 'Languages',
+      skills: [
+        'English – Upper Intermediate',
+        'Thai – Fluent',
+        'Burmese – Fluent'
+      ]
+    },
+    {
+      title: 'Soft Skills',
+      skills: [
+        'Problem-solving & analytical thinking',
+        'Continuous learning mindset',
+        'Collaboration & teamwork',
+        'Adaptability to new tools and technologies'
+      ]
+    }
+  ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
+  return (
+    <section className="skills">
+      <div className="container">
+        <div className="section-header">
+          <h2 className="section-title">Skills</h2>
+          <div className="section-divider"></div>
+        </div>
+
+        <motion.div
+          className="skills-grid"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {skillCategories.map((category, categoryIndex) => (
+            <motion.div
+              key={categoryIndex}
+              className="skills-category"
+              variants={itemVariants}
+            >
+              <h3 className="category-title">{category.title}</h3>
+              
+              {/* Handle Full-Stack Development with subcategories */}
+              {category.subcategories ? (
+                <div className="subcategories">
+                  {category.subcategories.map((subcategory, subIndex) => (
+                    <div key={subIndex} className="subcategory">
+                      <h4 className="subcategory-title">{subcategory.subtitle}:</h4>
+                      <div className="skills-list">
+                        {subcategory.skills.map((skill, skillIndex) => (
+                          <motion.span
+                            key={skillIndex}
+                            className="skill-badge"
+                            variants={itemVariants}
+                            whileHover={{ scale: 1.05 }}
+                          >
+                            {skill}
+                          </motion.span>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                /* Handle regular categories */
+                <div className="skills-list">
+                  {category.skills.map((skill, skillIndex) => (
+                    <motion.span
+                      key={skillIndex}
+                      className="skill-badge"
+                      variants={itemVariants}
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
+                </div>
+              )}
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Skills;
