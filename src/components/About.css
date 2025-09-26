@@ -196,26 +196,48 @@
   font-weight: 500;
 }
 
-.download-resume {
+.view-buttons-container {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.view-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   padding: 1rem 2rem;
-  background: #1976D2;
-  color: white;
-  text-decoration: none;
+  border: none;
   border-radius: 10px;
   font-weight: 600;
   font-size: 1rem;
   transition: all 0.3s ease;
-  align-self: flex-start;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.download-resume:hover {
+.btn-primary {
+  background: #1976D2;
+  color: white;
+}
+
+.btn-primary:hover {
   background: #1565C0;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(25, 118, 210, 0.3);
+}
+
+.btn-secondary {
+  background: #26de81;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background: #20bf6b;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(38, 222, 129, 0.3);
 }
 
 
@@ -306,6 +328,16 @@
   
   .education-item {
     padding: 1.5rem;
+  }
+  
+  .view-buttons-container {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  
+  .view-button {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
   }
 }
 

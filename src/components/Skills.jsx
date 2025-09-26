@@ -78,22 +78,33 @@ const Skills = () => {
   return (
     <section className="skills">
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">Skills</h2>
-          <div className="section-divider"></div>
-        </div>
+        <motion.div
+          className="skills-header"
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2>My Skills</h2>
+          <p className="skills-subtitle">Explore my technical expertise and core competencies</p>
+        </motion.div>
 
         <motion.div
           className="skills-grid"
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
         >
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={categoryIndex}
               className="skills-category"
               variants={itemVariants}
+              whileHover={{ 
+                y: -10,
+                boxShadow: "0 20px 40px rgba(0, 0, 0, 0.15)",
+                transition: { type: "spring", stiffness: 300 }
+              }}
             >
               <h3 className="category-title">{category.title}</h3>
               

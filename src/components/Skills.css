@@ -6,9 +6,24 @@
   align-items: center;
 }
 
-.skills .section-header {
-  text-align: left;
-  margin-bottom: 60px;
+.skills-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.skills-header h2 {
+  font-family: 'Warbler Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #051923;
+}
+
+.skills-subtitle {
+  font-size: 1.1rem;
+  color: #64CCC5;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .skills-grid {

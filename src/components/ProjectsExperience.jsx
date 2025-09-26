@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { EyeIcon, CodeBracketIcon, BriefcaseIcon, CalendarDaysIcon } from '@heroicons/react/24/outline';
+import { EyeIcon, CodeBracketIcon } from '@heroicons/react/24/outline';
 import './ProjectsExperience.css';
 
 const ProjectsExperience = () => {
@@ -31,32 +31,7 @@ const ProjectsExperience = () => {
     }
   ];
 
-  const experiences = [
-    {
-      title: "Cybersecurity Intern",
-      company: "SecureTech Solutions",
-      period: "June 2024 - Present",
-      description: "Assist in vulnerability assessments, penetration testing, and security incident response. Gained hands-on experience with security tools and frameworks.",
-      responsibilities: [
-        "Conducted vulnerability scans using Nessus and OpenVAS",
-        "Assisted in penetration testing engagements",
-        "Documented security findings and remediation steps",
-        "Participated in incident response procedures"
-      ]
-    },
-    {
-      title: "IT Support Trainee",
-      company: "University IT Department",
-      period: "January 2024 - May 2024",
-      description: "Provided technical support to students and faculty while learning about network security and system administration.",
-      responsibilities: [
-        "Troubleshot hardware and software issues",
-        "Assisted with network configuration and maintenance",
-        "Learned about Active Directory and user management",
-        "Supported cybersecurity awareness initiatives"
-      ]
-    }
-  ];
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -87,7 +62,8 @@ const ProjectsExperience = () => {
           className="projects-section"
           variants={containerVariants}
           initial="hidden"
-          animate="visible"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
         >
           <div className="section-header">
             <h2>Projects</h2>
@@ -100,7 +76,12 @@ const ProjectsExperience = () => {
                 key={index}
                 className="project-card"
                 variants={itemVariants}
-                whileHover={{ y: -5 }}
+                whileHover={{ 
+                  y: -10,
+                  scale: 1.02,
+                  boxShadow: "0 25px 50px rgba(0, 0, 0, 0.2)",
+                  transition: { type: "spring", stiffness: 300 }
+                }}
               >
                 <div className="project-image">
                   <img src={project.image} alt={project.title} />
@@ -129,50 +110,7 @@ const ProjectsExperience = () => {
           </div>
         </motion.div>
 
-        {/* Experience Section */}
-        <motion.div
-          className="experience-section"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <div className="section-header">
-            <h2>Experience</h2>
-            <p>Professional experience in cybersecurity and IT support</p>
-          </div>
 
-          <div className="experience-timeline">
-            {experiences.map((experience, index) => (
-              <motion.div
-                key={index}
-                className="experience-item"
-                variants={itemVariants}
-              >
-                <div className="experience-icon">
-                  <BriefcaseIcon className="icon" />
-                </div>
-                <div className="experience-content">
-                  <div className="experience-header">
-                    <h3>{experience.title}</h3>
-                    <div className="experience-meta">
-                      <span className="company">{experience.company}</span>
-                      <span className="period">
-                        <CalendarDaysIcon className="calendar-icon" />
-                        {experience.period}
-                      </span>
-                    </div>
-                  </div>
-                  <p className="experience-description">{experience.description}</p>
-                  <ul className="experience-responsibilities">
-                    {experience.responsibilities.map((responsibility, respIndex) => (
-                      <li key={respIndex}>{responsibility}</li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
       </div>
     </div>
   );

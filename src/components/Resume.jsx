@@ -251,9 +251,14 @@ const Resume = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <button className="btn btn-primary">
-            <FaDownload /> Download Full CV
-          </button>
+          <div className="download-buttons">
+            <button className="btn btn-primary">
+              <FaDownload /> View Resume
+            </button>
+            <button className="btn btn-secondary">
+              <FaDownload /> View Transcript
+            </button>
+          </div>
         </motion.div>
       </div>
 

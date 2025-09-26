@@ -304,6 +304,14 @@
   border-top: 1px solid #eee;
 }
 
+.download-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 .btn {
   padding: 15px 30px;
   font-size: 1rem;
@@ -326,6 +334,17 @@
 .btn-primary:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 35px rgba(100, 181, 246, 0.4);
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #26de81 0%, #20bf6b 100%);
+  color: white;
+  box-shadow: 0 8px 25px rgba(38, 222, 129, 0.3);
+}
+
+.btn-secondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(38, 222, 129, 0.4);
 }
 
 /* Certificate Modal */
@@ -461,5 +480,15 @@
   .cert-header {
     flex-direction: column;
     align-items: flex-start;
+  }
+  
+  .download-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
   }
 }

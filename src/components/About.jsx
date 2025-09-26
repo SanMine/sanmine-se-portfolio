@@ -11,8 +11,13 @@ import {
 import './About.css';
 import Profile from '../assets/Profile.png';
 import Resume from '../pdf/Resume.pdf';
+import Transcript from '../pdf/Transcript.pdf';
 
 const About = () => {
+  const handleViewPDF = (pdfUrl, title) => {
+    window.open(pdfUrl, '_blank', 'noopener,noreferrer');
+  };
+
   const personalDetails = [
     { icon: AcademicCapIcon, label: 'Degree', value: 'B.Sc. Software Engineering' },
     { icon: BuildingLibraryIcon, label: 'University', value: 'Mae Fah Luang University (MFU)' },
@@ -45,7 +50,8 @@ const About = () => {
           <motion.div
             className="photo-bio-section"
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <div className="photo-container">
@@ -62,9 +68,7 @@ const About = () => {
                   with a strong passion for cybersecurity. 
                   While my academic journey began in software engineering and web development, 
                   I have discovered my true calling in securing systems, networks, and applications.
-                </p>
-                <p>
-                    I have built a solid foundation in web development, 
+                  I have built a solid foundation in web development, 
                     databases, and security tools, which gives me a unique perspective on building and defending modern systems. 
                     I recently completed the CCNA course on Udemy (certificate of completion) 
                     and am currently preparing for the ISC2 Certified in Cybersecurity (CC) exam.
@@ -73,9 +77,7 @@ const About = () => {
                To further expand my skills, 
                I am actively studying Junior Penetration Tester and SOC Level 1 learning paths on TryHackMe, 
                with plans to take advanced courses in Incident Response and Digital Forensics through Coursera.
-                </p>
-                <p>
-                 By blending my background in software engineering with my growing expertise in cybersecurity, 
+                By blending my background in software engineering with my growing expertise in cybersecurity, 
                  I aim to become a skilled Cybersecurity Engineer who can design, 
                  build, and protect secure systems in today's ever-evolving threat landscape.
                 </p>
@@ -87,7 +89,8 @@ const About = () => {
           <motion.div
             className="education-section"
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <h3>Education</h3>
@@ -124,14 +127,41 @@ const About = () => {
               </div>
             </div>
             
-            <motion.a
-              href={Resume}
-              className="btn btn-primary download-resume"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              View Resume
-            </motion.a>
+            <div className="view-buttons-container">
+              <motion.button
+                onClick={() => handleViewPDF(Resume, 'Resume')}
+                className="btn btn-primary view-button"
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -2,
+                  boxShadow: "0 12px 35px rgba(25, 118, 210, 0.4)",
+                  transition: { type: "spring", stiffness: 400 }
+                }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                View Resume
+              </motion.button>
+              
+              <motion.button
+                onClick={() => handleViewPDF(Transcript, 'Transcript')}
+                className="btn btn-secondary view-button"
+                whileHover={{ 
+                  scale: 1.05, 
+                  y: -2,
+                  boxShadow: "0 12px 35px rgba(38, 222, 129, 0.4)",
+                  transition: { type: "spring", stiffness: 400 }
+                }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.7 }}
+              >
+                View Transcript
+              </motion.button>
+            </div>
           </motion.div>
         </div>
       </div>
