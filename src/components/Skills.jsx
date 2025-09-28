@@ -8,14 +8,15 @@ const Skills = () => {
       title: 'Full-Stack Development',
       subcategories: [
         {
-
-          skills: ['HTML', 'CSS', 'JavaScript']
+          subtitle: 'Frontend',
+          skills: ['HTML', 'CSS', 'JavaScript', 'React']
         },
         {
-
+          subtitle: 'Backend',
           skills: ['Node.js', 'Java', 'Dart (Flutter)']
         },
         {
+          subtitle: 'Database',
           skills: ['MySQL', 'MongoDB', 'Firebase']
         }
       ]
@@ -107,36 +108,37 @@ const Skills = () => {
             >
               <h3 className="category-title">{category.title}</h3>
               
-              {/* Handle Full-Stack Development with subcategories */}
               {category.subcategories ? (
                 <div className="subcategories">
                   {category.subcategories.map((subcategory, subIndex) => (
-                    <div key={subIndex} className="subcategory">
-                      <h4 className="subcategory-title">{subcategory.subtitle}:</h4>
-                      <div className="skills-list">
-                        {subcategory.skills.map((skill, skillIndex) => (
-                          <motion.span
-                            key={skillIndex}
-                            className="skill-badge"
-                            variants={itemVariants}
-                            whileHover={{ scale: 1.05 }}
-                          >
-                            {skill}
-                          </motion.span>
-                        ))}
+                    <React.Fragment key={subIndex}>
+                      <div className="subcategory">
+                        <h4 className="subcategory-title">{subcategory.subtitle}</h4>
+                        <div className="skills-list">
+                          {subcategory.skills.map((skill, skillIndex) => (
+                            <motion.span
+                              key={skillIndex}
+                              className="skill-badge"
+                              variants={itemVariants}
+                              whileHover={{ scale: 1.1, boxShadow: "0 5px 15px rgba(0,0,0,0.1)" }}
+                            >
+                              {skill}
+                            </motion.span>
+                          ))}
+                        </div>
                       </div>
-                    </div>
+                      {subIndex < category.subcategories.length - 1 && <hr className="subcategory-divider" />}
+                    </React.Fragment>
                   ))}
                 </div>
               ) : (
-                /* Handle regular categories */
                 <div className="skills-list">
                   {category.skills.map((skill, skillIndex) => (
                     <motion.span
                       key={skillIndex}
                       className="skill-badge"
                       variants={itemVariants}
-                      whileHover={{ scale: 1.05 }}
+                      whileHover={{ scale: 1.1, boxShadow: "0 5px 15px rgba(0,0,0,0.1)" }}
                     >
                       {skill}
                     </motion.span>

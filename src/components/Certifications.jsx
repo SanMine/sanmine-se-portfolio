@@ -8,50 +8,66 @@ import {
   EyeIcon
 } from '@heroicons/react/24/outline';
 import './Certifications.css';
+import ccnaPdf from '../pdf/CCNA_complete_cert.pdf';
+import ccnaImage from '../assets/ccnaImage.png';
+import CCPdf from '../pdf/CC.pdf';
+import JIWC from '../pdf/JIWC.pdf';
+import BrightTalk from '../pdf/brightTalk.pdf';
+import hackathon from '../assets/hackathon.png';
 
 const Certifications = () => {
   const [selectedCert, setSelectedCert] = useState(null);
 
   const certifications = [
     {
-      title: "CompTIA Security+",
-      issuer: "CompTIA",
-      date: "In Progress",
-      status: "in-progress",
-      description: "Industry-standard certification covering cybersecurity fundamentals, risk management, and network security.",
-      skills: ["Network Security", "Risk Management", "Cryptography", "Identity Management"],
-      badge: "/cert-security-plus.png",
+      title: "Cisco Certified Network Associate (CCNA)",
+      issuer: "Udemy",
+      status: "completed",
+      description: "Successfully completed the CCNA training course, gaining hands-on knowledge of networking fundamentals, IP addressing, subnetting, routing and switching concepts, network security, and troubleshooting techniques. This course provided a strong foundation for designing, configuring, and managing modern computer networks.",
+      image: ccnaImage,
+      certificate: ccnaPdf
+    },
+    {
+      title: "CC – Certified in Cybersecurity",
+      issuer: "ISC2",
+      status: "completed",
+      description: "Completed the ISC2 Certified in Cybersecurity (CC) training program, covering essential cybersecurity concepts including security principles, network security, access control, risk management, and incident response. Currently preparing to take the official certification exam to validate knowledge and skills.",
+      image: "/cert-ethical-hacking.png",
+      certificate: CCPdf
+    },
+    {
+      title: "Jr Penetration Tester",
+      issuer: "TryHackMe",
+      status: "in Progress",
+      description: "Currently progressing through the TryHackMe Jr Penetration Tester learning path, developing core skills in ethical hacking, vulnerability assessment, and penetration testing. This program focuses on practical, hands-on labs covering web application security, network exploitation, and enterprise infrastructure assessments.",
+      image: "/cert-network-security.png",
       certificate: null
     },
+  ];
+
+  const participationCertifications = [
     {
-      title: "Ethical Hacking Fundamentals",
-      issuer: "Cybrary",
-      date: "March 2024",
+      title: "Systems Security Certified Practitioner (SSCP) Info Session",
+      issuer: "ISC2 BrightTalk",
       status: "completed",
-      description: "Comprehensive course covering ethical hacking methodologies, penetration testing, and vulnerability assessment.",
-      skills: ["Penetration Testing", "Vulnerability Assessment", "Social Engineering", "Web Application Security"],
-      badge: "/cert-ethical-hacking.png",
-      certificate: "/cert-ethical-hacking.pdf"
+      description: "Attended a live ISC2 BrightTalk briefing on the SSCP covering domain scope, exam blueprint, study resources, and career pathways. Clarified preparation strategy across access control, network security, incident response, risk, and operations.",
+      image: "/cert-intro-cybersecurity.png",
+      certificate: BrightTalk
     },
     {
-      title: "Network Security Essentials",
-      issuer: "Cisco Networking Academy",
-      date: "February 2024",
+      title: "Joint International Workshop and Competition 2025 on AI & Game",
+      issuer: "JIWC",
       status: "completed",
-      description: "Foundational knowledge in network security principles, firewalls, VPNs, and intrusion detection systems.",
-      skills: ["Firewall Configuration", "VPN Setup", "IDS/IPS", "Network Monitoring"],
-      badge: "/cert-network-security.png",
-      certificate: "/cert-network-security.pdf"
+      description: "Participating in lectures and hands-on labs on AI for games (search, heuristics, pathfinding, RL). Built and tested a playable agent/bot; collaborated with cross-university teams for the competition submission.",
+      image: "/cert-intro-cybersecurity.png",
+      certificate: JIWC
     },
     {
-      title: "Introduction to Cybersecurity",
-      issuer: "Cisco Networking Academy",
-      date: "January 2024",
+      title: "Software Engineering Hackathon 2024",
+      issuer: "Mae Fah Luang University",
       status: "completed",
-      description: "Overview of cybersecurity landscape, common threats, and basic security practices.",
-      skills: ["Threat Analysis", "Security Awareness", "Digital Forensics", "Incident Response"],
-      badge: "/cert-intro-cybersecurity.png",
-      certificate: "/cert-intro-cybersecurity.pdf"
+      description: "Mentored junior teams on software architecture, SDLC, and Business Model Canvas (BMC); supported health-focused web app design, prototyping, and demo preparation.",
+      image: hackathon
     }
   ];
 
@@ -114,7 +130,7 @@ const Certifications = () => {
           {certifications.map((cert, index) => (
             <motion.div
               key={index}
-              className={`certification-card ${cert.status}`}
+              className={`certification-card ${cert.status.replace(/\s+/g, '-').toLowerCase()}`}
               variants={itemVariants}
               whileHover={{ y: -5 }}
             >
@@ -127,8 +143,8 @@ const Certifications = () => {
                   )}
                 </div>
                 <div className="cert-status">
-                  <span className={`status-badge ${cert.status}`}>
-                    {cert.status === 'completed' ? 'Completed' : 'In Progress'}
+                  <span className={`status-badge ${cert.status.replace(/\s+/g, '-').toLowerCase()}`}>
+                    {cert.status === 'completed' ? 'Completed' : 'IN PROGRESS'}
                   </span>
                 </div>
               </div>
@@ -136,29 +152,95 @@ const Certifications = () => {
               <div className="cert-content">
                 <h3>{cert.title}</h3>
                 <p className="cert-issuer">{cert.issuer}</p>
-                <p className="cert-date">{cert.date}</p>
                 <p className="cert-description">{cert.description}</p>
 
-                <div className="cert-skills">
-                  {cert.skills.map((skill, skillIndex) => (
-                    <span key={skillIndex} className="skill-tag">{skill}</span>
-                  ))}
-                </div>
-
-                {cert.certificate && (
+                {(cert.certificate || cert.image) && cert.status !== 'in Progress' && (
                   <div className="cert-actions">
                     <button
                       className="view-cert-btn"
-                      onClick={() => openCertificate(cert)}
+                      onClick={() => {
+                        if (cert.certificate) {
+                          openCertificate(cert);
+                        } else if (cert.image) {
+                          window.open(cert.image, '_blank');
+                        }
+                      }}
                     >
                       <DocumentTextIcon className="icon" />
-                      View Certificate
+                      {cert.certificate ? 'View Certificate' : 'View Image'}
                     </button>
                   </div>
                 )}
               </div>
             </motion.div>
           ))}
+        </motion.div>
+
+        {/* Participation Certifications Section */}
+        <motion.div
+          className="participation-certifications-section"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+        >
+          <div className="section-header">
+            <h3>Hackathons & Activities</h3>
+            <p>Evidence of practical participation and outcomes</p>
+          </div>
+
+          <motion.div
+            className="certifications-grid"
+            variants={containerVariants}
+          >
+            {participationCertifications.map((cert, index) => (
+              <motion.div
+                key={`participation-${index}`}
+                className={`certification-card ${cert.status.replace(/\s+/g, '-').toLowerCase()}`}
+                variants={itemVariants}
+                whileHover={{ y: -5 }}
+              >
+                <div className="cert-header">
+                  <div className="cert-icon">
+                    {cert.status === 'completed' ? (
+                      <AcademicCapIcon className="icon completed" />
+                    ) : (
+                      <ShieldCheckIcon className="icon in-progress" />
+                    )}
+                  </div>
+                  <div className="cert-status">
+                    <span className={`status-badge ${cert.status.replace(/\s+/g, '-').toLowerCase()}`}>
+                      {cert.status === 'completed' ? 'Completed' : 'IN PROGRESS'}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="cert-content">
+                  <h3>{cert.title}</h3>
+                  <p className="cert-issuer">{cert.issuer}</p>
+                  <p className="cert-description">{cert.description}</p>
+
+                  {(cert.certificate || cert.image) && (
+                    <div className="cert-actions">
+                      <button
+                        className="view-cert-btn"
+                        onClick={() => {
+                          if (cert.certificate) {
+                            openCertificate(cert);
+                          } else if (cert.image) {
+                            window.open(cert.image, '_blank');
+                          }
+                        }}
+                      >
+                        <DocumentTextIcon className="icon" />
+                        {cert.certificate ? 'View Certificate' : 'View Image'}
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
 
         {/* Certificate Modal */}

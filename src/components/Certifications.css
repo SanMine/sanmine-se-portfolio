@@ -45,6 +45,9 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .certification-card:hover {
@@ -57,7 +60,7 @@
 }
 
 .certification-card.in-progress {
-  border-left: 4px solid #69BFFF;
+  border-left: 4px solid #ef4444;
 }
 
 .cert-header {
@@ -88,7 +91,7 @@
 }
 
 .cert-icon .icon.in-progress {
-  color: #69BFFF;
+  color: #ef4444;
 }
 
 .status-badge {
@@ -106,8 +109,14 @@
 }
 
 .status-badge.in-progress {
-  background: rgba(105, 191, 255, 0.2);
-  color: #69BFFF;
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.cert-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .cert-content h3 {
@@ -136,6 +145,7 @@
   opacity: 0.8;
   line-height: 1.6;
   margin-bottom: 1.5rem;
+  flex-grow: 1;
 }
 
 .cert-skills {
@@ -156,7 +166,8 @@
 }
 
 .cert-actions {
-  margin-top: 1rem;
+  margin-top: auto;
+  padding-top: 1rem;
 }
 
 .view-cert-btn {
@@ -297,6 +308,31 @@
 .btn .icon {
   width: 18px;
   height: 18px;
+}
+
+/* Participation Certifications Section */
+.participation-certifications-section {
+  margin-top: 4rem;
+}
+
+.participation-certifications-section .section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.participation-certifications-section .section-header h3 {
+  font-family: 'Warbler Display', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #051923;
+}
+
+.participation-certifications-section .section-header p {
+  font-size: 1.1rem;
+  color: #64CCC5;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* Responsive Design */

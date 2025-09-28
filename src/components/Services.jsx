@@ -11,28 +11,34 @@ import './Services.css';
 const Services = () => {
   const services = [
     {
-      icon: ShieldCheckIcon,
-      title: 'Vulnerability Assessment',
-      description: 'Comprehensive security assessments to identify and address potential vulnerabilities in your systems and networks.',
-      features: ['Network vulnerability scanning', 'Web application security testing', 'Configuration review', 'Risk assessment and prioritization']
-    },
-    {
       icon: BugAntIcon,
-      title: 'Penetration Testing',
-      description: 'Ethical hacking services to test your security defenses and identify potential entry points for malicious actors.',
-      features: ['External penetration testing', 'Internal network testing', 'Social engineering assessments', 'Detailed reporting with remediation steps']
+      title: 'Penetration Testing (Student/Trainee Level)',
+      description: 'I assist in identifying and validating common vulnerabilities in websites and applications, such as XSS, SQLi, and CSRF, using industry-standard tools like Burp Suite and OWASP ZAP.',
+      features: [
+        'Web Application Security Testing – Detect flaws in web apps.',
+        'Network Scanning & Enumeration – Discover open ports and services safely with Nmap.',
+        'Vulnerability Assessment – Run and analyze vulnerability scans with reporting.'
+      ]
     },
     {
-      icon: EyeIcon,
-      title: 'Security Monitoring',
-      description: '24/7 monitoring and incident response services to detect and respond to security threats in real-time.',
-      features: ['SIEM implementation and management', 'Threat hunting and analysis', 'Incident response planning', 'Security awareness training']
+      icon: ShieldCheckIcon,
+      title: 'Full-Stack for Secure Software Development',
+      description: 'I build and secure end-to-end applications with frontend (React, HTML/CSS), backend (Node.js, Express), and database (MySQL, Firebase). My focus is on applying OWASP Top 10 secure coding principles so projects are both functional and protected.',
+      features: [
+        'Frontend + Backend + DB integration',
+        'Secure coding practices',
+        'Deployment on Vercel / Railway'
+      ]
     },
     {
       icon: DocumentTextIcon,
-      title: 'Compliance & Documentation',
-      description: 'Ensuring your organization meets regulatory requirements and maintains proper security documentation.',
-      features: ['Compliance gap analysis', 'Policy and procedure development', 'Audit preparation and support', 'Security framework implementation']
+      title: 'Project Design, SDLC & Methodology',
+      description: 'I design projects following structured Software Development Life Cycle (SDLC) models and methodologies (Agile, Waterfall, Scrum) to ensure quality, scalability, and maintainability. This helps teams plan, develop, and deliver software securely and efficiently.',
+      features: [
+        'SDLC Documentation – Requirements, ERD, Data Flow, and Architecture Diagrams.',
+        'Methodologies – Agile, Scrum, Waterfall (depending on project needs).',
+        'Team Collaboration – Clear role definitions, deliverables, and reporting.'
+      ]
     }
   ];
 

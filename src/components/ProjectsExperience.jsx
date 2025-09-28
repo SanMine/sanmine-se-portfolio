@@ -10,6 +10,14 @@ import oonjaiPdf from '../pdf/Oonjai.pdf';
 const ProjectsExperience = () => {
   const projects = [
     {
+    title: "OWASP Juice Shop Security Lab",
+    description: "Hands-on penetration testing practice project using the intentionally vulnerable OWASP Juice Shop application. Explored OWASP Top 10 vulnerabilities such as SQL Injection, XSS, and Insecure Authentication. Documented findings in a professional-style security report with remediation recommendations.",
+    image: "", 
+    technologies: ["Burp Suite", "OWASP ZAP", "Nmap", "OWASP Top 10"],
+    liveLink: "#",
+    codeLink: "#" 
+    },
+    {
       title: "AI Assistant Chatbot",
       description: "Automated academic workflows: email handling, event scheduling, and PDF signing. Reduced manual tasks for professors and ensured student requests weren't missed. Applied workflow automation tools in a real-world academic setting.",
       image: n8nImage,
@@ -28,14 +36,12 @@ const ProjectsExperience = () => {
     {
       title: "Lumiq – Smart Dormitory Booking & Living Platform",
       description: "No-code management system built with Google Sheets and n8n automation. Developed a full-stack platform for room booking, online payments, and intelligent roommate matching. Implemented online deposits, digital contracts, and multilingual support.",
-      image: lumiqImage,
+      image: n8nImage,
       technologies: ["HTML", "Tailwind CSS", "Javascript", "Node.js", "MySQL", "n8n"],
       liveLink: "#",
       codeLink: "https://github.com/SanMine/Lumiq"
     }
   ];
-
-
 
   const containerVariants = {
     hidden: { opacity: 0 },
