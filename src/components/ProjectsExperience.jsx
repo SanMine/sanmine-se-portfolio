@@ -2,32 +2,36 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { EyeIcon, CodeBracketIcon } from '@heroicons/react/24/outline';
 import './ProjectsExperience.css';
+import n8nImage from '../assets/n8n.png';
+import n8nPdf from '../pdf/n8n_work_flows.pdf';
+import oonjaiImage from '../assets/Oonjai_logo.png';
+import oonjaiPdf from '../pdf/Oonjai.pdf';
 
 const ProjectsExperience = () => {
   const projects = [
     {
-      title: "Secure Web Application",
-      description: "Full-stack web application with security-first approach, implementing OAuth 2.0, input validation, and SQL injection prevention.",
-      image: "/project1.jpg",
-      technologies: ["React", "Node.js", "MongoDB", "JWT"],
-      liveLink: "#",
-      codeLink: "#"
+      title: "AI Assistant Chatbot",
+      description: "Automated academic workflows: email handling, event scheduling, and PDF signing. Reduced manual tasks for professors and ensured student requests weren't missed. Applied workflow automation tools in a real-world academic setting.",
+      image: n8nImage,
+      technologies: ["n8n", "Telegram Bot API", "Google Calendar API", "Gmail API", "DeepSeek API", "PDF Automation"],
+      liveLink: n8nPdf,
+      codeLink: "https://github.com/SanMine/AI-Assistant-Chatbot"
     },
     {
-      title: "Network Security Scanner",
-      description: "Python-based network vulnerability scanner that identifies open ports, services, and potential security weaknesses.",
-      image: "/project2.jpg",
-      technologies: ["Python", "Nmap", "Socket", "Threading"],
-      liveLink: "#",
-      codeLink: "#"
+      title: "Oonjai",
+      description: "Volunteer project in collaboration with the School of Applied Medicine. Designed and implemented a rule-based recommendation engine to analyze user inputs and map them to personalized health suggestions. Built interactive dashboards and developed secure user profiles.",
+      image: oonjaiImage,
+      technologies: ["Dart (Flutter)", "Firebase"],
+      liveLink: oonjaiPdf,
+      codeLink: "https://github.com/SanMine/Oonjai_app"
     },
     {
-      title: "Incident Response Dashboard",
-      description: "Real-time cybersecurity incident monitoring dashboard with automated threat detection and response capabilities.",
-      image: "/project3.jpg",
-      technologies: ["React", "D3.js", "Python", "Flask"],
+      title: "Lumiq – Smart Dormitory Booking & Living Platform",
+      description: "No-code management system built with Google Sheets and n8n automation. Developed a full-stack platform for room booking, online payments, and intelligent roommate matching. Implemented online deposits, digital contracts, and multilingual support.",
+      image: lumiqImage,
+      technologies: ["HTML", "Tailwind CSS", "Javascript", "Node.js", "MySQL", "n8n"],
       liveLink: "#",
-      codeLink: "#"
+      codeLink: "https://github.com/SanMine/Lumiq"
     }
   ];
 
@@ -87,10 +91,21 @@ const ProjectsExperience = () => {
                   <img src={project.image} alt={project.title} />
                   <div className="project-overlay">
                     <div className="project-links">
-                      <a href={project.liveLink} className="project-link">
+                      <a 
+                        href={project.liveLink} 
+                        className="project-link" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        onClick={(e) => {
+                          if (project.liveLink.endsWith('.pdf')) {
+                            e.preventDefault();
+                            window.open(project.liveLink, '_blank');
+                          }
+                        }}
+                      >
                         <EyeIcon className="icon" />
                       </a>
-                      <a href={project.codeLink} className="project-link">
+                      <a href={project.codeLink} className="project-link" target="_blank" rel="noopener noreferrer">
                         <CodeBracketIcon className="icon" />
                       </a>
                     </div>

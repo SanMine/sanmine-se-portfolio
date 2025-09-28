@@ -8,15 +8,14 @@ const Skills = () => {
       title: 'Full-Stack Development',
       subcategories: [
         {
-          subtitle: 'Frontend',
-          skills: ['HTML5', 'CSS3', 'JavaScript']
+
+          skills: ['HTML', 'CSS', 'JavaScript']
         },
         {
-          subtitle: 'Backend',
+
           skills: ['Node.js', 'Java', 'Dart (Flutter)']
         },
         {
-          subtitle: 'Databases',
           skills: ['MySQL', 'MongoDB', 'Firebase']
         }
       ]
