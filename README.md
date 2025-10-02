@@ -28,11 +28,11 @@ A modern, responsive personal portfolio website built with React and Vite, showc
 ## 📱 Sections
 
 1. **Home**: Hero section with typing animation and call-to-action
-2. **About**: Personal information, skills with animated progress bars
-3. **Resume**: Education, experience timeline, and downloadable certificates
-4. **Portfolio**: Project showcase with filtering and detailed modals
+2. **About**: Personal information, education details with downloadable resume/transcript
+3. **Skills**: Technical expertise organized by categories
+4. **Projects**: Project showcase with detailed descriptions and links
 5. **Services**: Cybersecurity services and expertise areas
-6. **Testimonials**: Client and mentor testimonials
+6. **Certifications**: Professional certifications and training
 7. **Contact**: Contact form, information, and social links
 
 ## 🚀 Getting Started
@@ -74,24 +74,27 @@ The built files will be in the `dist` directory.
 
 ```
 src/
-├── components/           # React components
-│   ├── Sidebar.jsx      # Navigation sidebar
-│   ├── Home.jsx         # Hero section
-│   ├── About.jsx        # About page with skills
-│   ├── Resume.jsx       # Experience and education
-│   ├── Portfolio.jsx    # Project showcase
-│   ├── Services.jsx     # Services offered
-│   ├── Testimonials.jsx # Client testimonials
-│   ├── Contact.jsx      # Contact form and info
-│   └── *.css            # Component stylesheets
-├── App.jsx              # Main app component
-├── App.css              # Global styles
-└── main.jsx             # Entry point
+├── components/                # React components
+│   ├── Sidebar.jsx           # Navigation sidebar
+│   ├── Home.jsx              # Hero section
+│   ├── About.jsx             # About page with education
+│   ├── Skills.jsx            # Technical skills categories
+│   ├── ProjectsExperience.jsx # Project showcase
+│   ├── Services.jsx          # Services offered
+│   ├── Certifications.jsx    # Professional certifications
+│   ├── Contact.jsx           # Contact form and info
+│   ├── DecorativeDivider.jsx # Section dividers
+│   └── *.css                 # Component stylesheets
+├── global.css                # Global vertical rhythm system
+├── App.jsx                   # Main app component
+├── App.css                   # Global styles
+└── main.jsx                  # Entry point
 
 public/
-├── certificates/        # Certificate PDF files
-├── images-guide.md      # Image replacement guide
-└── vercel.json          # Vercel deployment config
+├── certificates/             # Certificate PDF files
+├── pdf/                      # Resume and document files
+├── images-guide.md           # Image replacement guide
+└── vercel.json               # Vercel deployment config
 ```
 
 ## 🎨 Customization

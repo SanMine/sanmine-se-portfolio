@@ -6,16 +6,19 @@ import n8nImage from '../assets/n8n.png';
 import n8nPdf from '../pdf/n8n_work_flows.pdf';
 import oonjaiImage from '../assets/Oonjai_logo.png';
 import oonjaiPdf from '../pdf/Oonjai.pdf';
+import labImage from '../assets/lab.png';
+import lab from '../pdf/OWASP_lab.pdf';
+import report from '../pdf/report.pdf';
 
 const ProjectsExperience = () => {
   const projects = [
     {
     title: "OWASP Juice Shop Security Lab",
     description: "Hands-on penetration testing practice project using the intentionally vulnerable OWASP Juice Shop application. Explored OWASP Top 10 vulnerabilities such as SQL Injection, XSS, and Insecure Authentication. Documented findings in a professional-style security report with remediation recommendations.",
-    image: "", 
-    technologies: ["Burp Suite", "OWASP ZAP", "Nmap", "OWASP Top 10"],
-    liveLink: "#",
-    codeLink: "#" 
+    image: labImage, 
+    technologies: ["Burp Suite", "OWASP Juice Shop", "SQL Injection", "XSS", "Insecure Authentication"],
+    liveLink: lab,
+    codeLink: report 
     },
     {
       title: "AI Assistant Chatbot",
@@ -38,7 +41,7 @@ const ProjectsExperience = () => {
       description: "No-code management system built with Google Sheets and n8n automation. Developed a full-stack platform for room booking, online payments, and intelligent roommate matching. Implemented online deposits, digital contracts, and multilingual support.",
       image: n8nImage,
       technologies: ["HTML", "Tailwind CSS", "Javascript", "Node.js", "MySQL", "n8n"],
-      liveLink: "#",
+      liveLink: null,
       codeLink: "https://github.com/SanMine/Lumiq"
     }
   ];
@@ -65,7 +68,7 @@ const ProjectsExperience = () => {
   };
 
   return (
-    <div className="projects-experience-container" id="projects">
+    <div className="projects-experience-container section" id="projects">
       <div className="projects-experience-content">
         {/* Projects Section */}
         <motion.div
@@ -76,11 +79,11 @@ const ProjectsExperience = () => {
           viewport={{ once: true, margin: "-100px" }}
         >
           <div className="section-header">
-            <h2>Projects</h2>
-            <p>Cybersecurity and development projects showcasing my technical skills</p>
+            <h2 className="section-title">Projects</h2>
+            <p className="section-subtitle">Cybersecurity and development projects showcasing my technical skills</p>
           </div>
 
-          <div className="projects-grid">
+          <div className="section-content projects-grid">
             {projects.map((project, index) => (
               <motion.div
                 key={index}
@@ -130,8 +133,6 @@ const ProjectsExperience = () => {
             ))}
           </div>
         </motion.div>
-
-
       </div>
     </div>
   );

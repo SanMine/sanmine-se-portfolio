@@ -90,10 +90,10 @@ const Sidebar = ({ activeSection, scrollToSection }) => {
   const contactLinks = [
     { icon: EnvelopeIcon, label: 'Email', href: 'mailto:saisanmine.nov@gmail.com' },
     { icon: PhoneIcon, label: 'Phone', href: 'tel:+66923377538' },
-    { icon: FaLine, label: 'Line', href: 'https://line.me/ti/p/~saisanmine' },
-    { icon: FaFacebookF, label: 'Facebook', href: 'https://facebook.com/saisanmine' },
-    { icon: FaGithub, label: 'GitHub', href: 'https://github.com/saisanmine' },
-    { icon: FaLinkedinIn, label: 'LinkedIn', href: 'https://linkedin.com/in/saisanmine' }
+    { icon: FaLine, label: 'Line', href: 'https://line.me/ti/p/gpeVlqEiAB' },
+    { icon: FaFacebookF, label: 'Facebook', href: 'https://www.facebook.com/share/176j5X36ER/?mibextid=wwXIfr' },
+    { icon: FaGithub, label: 'GitHub', href: 'https://github.com/SanMine?tab=overview&from=2024-12-01&to=2024-12-31' },
+    { icon: FaLinkedinIn, label: 'LinkedIn', href: 'https://www.linkedin.com/in/sai-san-mine-8054ba259/' }
   ];
 
   return (
@@ -150,7 +150,9 @@ const Sidebar = ({ activeSection, scrollToSection }) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5, ease: "easeOut" }}
             >
-              Cybersecurity Engineer Trainee/Intern
+              Penetration Tester
+              <br />
+              Trainee/Intern
             </motion.p>
           </div>
         </motion.div>

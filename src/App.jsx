@@ -8,6 +8,7 @@ import ProjectsExperience from './components/ProjectsExperience';
 import Services from './components/Services';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
+import DecorativeDivider from './components/DecorativeDivider';
 
 function App() {
   const [activeSection, setActiveSection] = useState('home');
@@ -47,10 +48,15 @@ function App() {
       <main className="main-content">
         <section id="home"><Home /></section>
         <section id="about"><About /></section>
+        <DecorativeDivider />
         <section id="skills"><Skills /></section>
+        <DecorativeDivider />
         <section id="projects-experience"><ProjectsExperience /></section>
+        <DecorativeDivider />
         <section id="services"><Services /></section>
+        <DecorativeDivider />
         <section id="certifications"><Certifications /></section>
+        <DecorativeDivider />
         <section id="contact"><Contact /></section>
       </main>
     </div>

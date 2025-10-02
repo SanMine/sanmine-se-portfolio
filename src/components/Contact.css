@@ -1,6 +1,5 @@
 .contact-container {
   padding: 3rem 0;
-  background: white;
   color: #051923;
 }
 
@@ -15,19 +14,34 @@
   margin-bottom: 3rem;
 }
 
-.contact-header h2 {
-  font-family: 'Warbler Display', serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #051923;
+/* Section Header Styling */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.contact-header p {
-  font-size: 1.1rem;
-  color: #64CCC5;
-  max-width: 600px;
+.section-header .section-title {
+  margin: 0 0 1rem 0;
+  color: #0f151d;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.section-header .section-subtitle {
   margin: 0 auto;
+  color: #64748b;
+  max-width: 60ch;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  line-height: 1.6;
+  font-weight: 400;
+  text-align: center;
 }
 
 .contact-main {
@@ -267,6 +281,31 @@
   line-height: 1.6;
 }
 
+.error-message {
+  background: #FEF2F2;
+  border: 1px solid #FECACA;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.error-icon {
+  width: 20px;
+  height: 20px;
+  color: #EF4444;
+  flex-shrink: 0;
+}
+
+.error-message p {
+  color: #DC2626;
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .contact-main {
@@ -293,4 +332,21 @@
   .social-icons {
     justify-content: center;
   }
+}
+
+/* Copyright Footer */
+.copyright-footer {
+  text-align: center;
+  padding: 2rem 0 1rem 0;
+  margin-top: 2rem;
+  border-top: 1px solid #E0E6ED;
+  background: #F7F9FC;
+}
+
+.copyright-footer p {
+  color: #051923;
+  opacity: 0.7;
+  font-size: 0.9rem;
+  margin: 0;
+  font-weight: 400;
 }

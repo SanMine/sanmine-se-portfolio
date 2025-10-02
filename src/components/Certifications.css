@@ -1,6 +1,5 @@
 .certifications-container {
   padding: 3rem 0;
-  background: white;
   color: #051923;
 }
 
@@ -15,19 +14,34 @@
   margin-bottom: 3rem;
 }
 
-.certifications-header h2 {
-  font-family: 'Warbler Display', serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: #051923;
+/* Section Header Styling */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.certifications-header p {
-  font-size: 1.1rem;
-  color: #64CCC5;
-  max-width: 600px;
+.section-header .section-title {
+  margin: 0 0 1rem 0;
+  color: #0f151d;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.section-header .section-subtitle {
   margin: 0 auto;
+  color: #64748b;
+  max-width: 60ch;
+  font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+  line-height: 1.6;
+  font-weight: 400;
+  text-align: center;
 }
 
 .certifications-grid {
@@ -325,12 +339,12 @@
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #051923;
+  color: #0f151d;
 }
 
 .participation-certifications-section .section-header p {
   font-size: 1.1rem;
-  color: #64CCC5;
+  color: #64748b;
   max-width: 600px;
   margin: 0 auto;
 }

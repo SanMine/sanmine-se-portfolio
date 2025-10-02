@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import { 
   EnvelopeIcon, 
   PhoneIcon, 
   MapPinIcon, 
   PaperAirplaneIcon,
-  CheckCircleIcon
+  CheckCircleIcon,
+  ExclamationTriangleIcon
 } from '@heroicons/react/24/outline';
 import './Contact.css';
 
@@ -18,41 +20,49 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  // Initialize EmailJS when component mounts
+  useEffect(() => {
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'xmseWWr5kU87XRzB-';
+    emailjs.init(publicKey);
+    console.log('EmailJS initialized with public key:', publicKey.substring(0, 5) + '...');
+  }, []);
 
   const contactInfo = [
     {
       icon: MapPinIcon,
       title: 'Address',
-      details: ['542, Soi 3, Tha Sut', 'Amphoe Mueang Chiang Rai 57100', 'Thailand']
+      details: ['542, Soi 3, Tha Sut', 'Amphoe Mueang Chiang Rai 57100', 'Chang Wat Chiang Rai', 'Thailand']
     },
     {
       icon: EnvelopeIcon,
       title: 'Email',
-      details: ['saisanmine.contact@gmail.com', 'sai.mine@mfu.ac.th']
+      details: ['saisanmine.nov@gmail.com', '6531503177@lamduan.mfu.ac.th']
     },
     {
       icon: PhoneIcon,
       title: 'Phone',
-      details: ['+66 94 445 7245']
+      details: ['+66-923-377-538']
     }
   ];
 
   const socialLinks = [
     {
       name: 'GitHub',
-      url: 'https://github.com/SaiSanmine'
+      url: 'https://github.com/SanMine?tab=overview&from=2024-12-01&to=2024-12-31'
     },
     {
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/sai-san-mine'
+      url: 'https://www.linkedin.com/in/sai-san-mine-8054ba259/'
     },
     {
       name: 'Facebook',
-      url: 'https://facebook.com/saisanmine'
+      url: 'https://www.facebook.com/share/176j5X36ER/?mibextid=wwXIfr'
     },
     {
       name: 'LINE',
-      url: 'https://line.me/ti/p/saisanmine'
+      url: 'https://line.me/ti/p/gpeVlqEiAB'
     }
   ];
 
@@ -64,15 +74,31 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setSubmitError('');
     
-    // Simulate form submission
-    console.log('Form submitted:', formData);
+    // EmailJS configuration - Correct service and template IDs
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_hsdecxb';
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_q9osgu5';
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'xmseWWr5kU87XRzB-';
     
-    // Simulate API call delay
-    setTimeout(() => {
+    const templateParams = {
+      name: formData.name,
+      from_email: formData.email,
+      subject: formData.subject,
+      message: formData.message
+    };
+    
+    // Debug log to check configuration
+    console.log('EmailJS Config:', { serviceId, templateId, publicKey: publicKey.substring(0, 5) + '...' });
+    console.log('Template Params:', templateParams);
+    
+    try {
+      console.log('Attempting to send email with EmailJS...');
+      const result = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      console.log('EmailJS Success:', result);
       setIsSubmitting(false);
       setIsSubmitted(true);
       setFormData({ name: '', email: '', subject: '', message: '' });
@@ -81,23 +107,52 @@ const Contact = () => {
       setTimeout(() => {
         setIsSubmitted(false);
       }, 5000);
-    }, 2000);
+    } catch (error) {
+      console.error('EmailJS Error Details:', error);
+      console.error('Error status:', error.status);
+      console.error('Error text:', error.text);
+      console.error('Full error object:', JSON.stringify(error, null, 2));
+      setIsSubmitting(false);
+      
+      // More specific error messages
+      let errorMessage = 'Failed to send message. ';
+      if (error.status === 422) {
+        errorMessage += 'Template configuration error. Check template variables.';
+      } else if (error.status === 400) {
+        errorMessage += `Invalid request (400). Service ID: ${serviceId}, Template ID: ${templateId}`;
+      } else if (error.status === 401) {
+        errorMessage += 'Unauthorized. Check your public key.';
+      } else if (error.status === 404) {
+        errorMessage += 'Service or template not found. Check your IDs.';
+      } else if (error.text) {
+        errorMessage += `Error: ${error.text}`;
+      } else {
+        errorMessage += `Unknown error (Status: ${error.status || 'N/A'})`;
+      }
+      
+      setSubmitError(errorMessage);
+      
+      // Clear error message after 15 seconds for debugging
+      setTimeout(() => {
+        setSubmitError('');
+      }, 15000);
+    }
   };
 
   return (
-    <div className="contact-container" id="contact">
+    <div className="contact-container section" id="contact">
       <div className="contact-content">
         <motion.div
-          className="contact-header"
+          className="section-header"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2>Contact Me</h2>
-          <p>Let's discuss your cybersecurity needs and how I can help secure your digital assets</p>
+          <h2 className="section-title">Contact Me</h2>
+          <p className="section-subtitle">Let's discuss your cybersecurity needs and how I can help secure your digital assets</p>
         </motion.div>
 
-        <div className="contact-main">
+        <div className="section-content contact-main">
           <motion.div
             className="contact-info"
             initial={{ opacity: 0, x: -50 }}
@@ -107,7 +162,8 @@ const Contact = () => {
             <h3>Get In Touch</h3>
             <p className="contact-description">
               I'm always interested in discussing new opportunities in cybersecurity, 
-              secure development, and collaborative projects. Feel free to reach out!
+              secure development, and collaborative projects. 
+              Feel free to reach out!
             </p>
 
             <div className="contact-details">
@@ -173,6 +229,18 @@ const Contact = () => {
                 <p>Thank you for reaching out. I'll get back to you as soon as possible.</p>
               </motion.div>
             ) : (
+              <>
+                {submitError && (
+                  <motion.div
+                    className="error-message"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <ExclamationTriangleIcon className="error-icon" />
+                    <p>{submitError}</p>
+                  </motion.div>
+                )}
               <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="name">Name *</label>
@@ -246,10 +314,21 @@ const Contact = () => {
                   )}
                 </motion.button>
               </form>
+              </>
             )}
           </motion.div>
         </div>
       </div>
+      
+      {/* Copyright Footer */}
+      <motion.div
+        className="copyright-footer"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1 }}
+      >
+        <p>© 2025 SAI SAN MINE. All rights reserved.</p>
+      </motion.div>
     </div>
   );
 };

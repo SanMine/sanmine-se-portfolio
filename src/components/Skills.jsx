@@ -24,7 +24,9 @@ const Skills = () => {
     {
       title: 'Network & Security',
       skills: [
-        'Networking fundamentals (CCNA)',
+        'Networking',
+        'Penetration Testing',
+        'Vulnerability Assessment',
         'Burp Suite',
         'Wireshark',
         'Kali Linux',
@@ -76,20 +78,20 @@ const Skills = () => {
   };
 
   return (
-    <section className="skills">
+    <section className="skills section" id="skills">
       <div className="container">
         <motion.div
-          className="skills-header"
+          className="section-header"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2>My Skills</h2>
-          <p className="skills-subtitle">Explore my technical expertise and core competencies</p>
+          <h2 className="section-title">My Skills</h2>
+          <p className="section-subtitle">Explore my technical expertise and core competencies</p>
         </motion.div>
 
         <motion.div
-          className="skills-grid"
+          className="section-content skills-grid"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

@@ -14,6 +14,7 @@ import CCPdf from '../pdf/CC.pdf';
 import JIWC from '../pdf/JIWC.pdf';
 import BrightTalk from '../pdf/brightTalk.pdf';
 import hackathon from '../assets/hackathon.png';
+import Ai from '../pdf/Ai.pdf';
 
 const Certifications = () => {
   const [selectedCert, setSelectedCert] = useState(null);
@@ -35,7 +36,15 @@ const Certifications = () => {
       image: "/cert-ethical-hacking.png",
       certificate: CCPdf
     },
-    {
+      {
+      title: "AI for ALL",
+      issuer: "CBTU and Mahidol University",
+      status: "completed",
+      description: "Completed the AI for ALL program, gaining insight into the ethical use of artificial intelligence and its applications across diverse fields. The program included collaborative projects and real-world case studies, fostering practical skills in applying AI solutions responsibly.",
+      image: "/cert-network-security.png",
+      certificate: Ai
+    },
+      {
       title: "Jr Penetration Tester",
       issuer: "TryHackMe",
       status: "in Progress",
@@ -43,6 +52,14 @@ const Certifications = () => {
       image: "/cert-network-security.png",
       certificate: null
     },
+    {
+      title: "Web-security",
+      issuer: "Creatigon",
+      status: "in Progress",
+      description: "Engaged in the Creatigon Web-security program, building foundational expertise in ethical hacking, vulnerability assessment, and penetration testing. The curriculum emphasizes practical, hands-on labs covering web application security, network exploitation, and enterprise infrastructure testing.",
+      image: "/cert-network-security.png",
+      certificate: null
+    }
   ];
 
   const participationCertifications = [
@@ -109,20 +126,20 @@ const Certifications = () => {
   };
 
   return (
-    <div className="certifications-container" id="certifications">
+    <div className="certifications-container section" id="certifications">
       <div className="certifications-content">
         <motion.div
-          className="certifications-header"
+          className="section-header"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2>Certifications</h2>
-          <p>Professional certifications and training in cybersecurity</p>
+          <h2 className="section-title">Certifications</h2>
+          <p className="section-subtitle">Professional certifications and training in cybersecurity</p>
         </motion.div>
 
         <motion.div
-          className="certifications-grid"
+          className="section-content certifications-grid"
           variants={containerVariants}
           initial="hidden"
           animate="visible"

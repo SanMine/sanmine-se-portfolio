@@ -64,20 +64,20 @@ const Services = () => {
   };
 
   return (
-    <div className="services-container" id="services">
+    <div className="services-container section" id="services">
       <div className="services-content">
         <motion.div
-          className="services-header"
+          className="section-header"
           initial={{ opacity: 0, y: -30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2>Services</h2>
-          <p>Specialized cybersecurity services and secure development solutions</p>
+          <h2 className="section-title">Services</h2>
+          <p className="section-subtitle">Specialized cybersecurity services and secure development solutions</p>
         </motion.div>
 
         <motion.div 
-          className="services-grid"
+          className="section-content services-grid"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
