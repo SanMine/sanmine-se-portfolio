@@ -75,7 +75,7 @@ const About = () => {
               </figure>
               
               <div className="about-content-text">
-                <h3>Cybersecurity Engineer Trainee/Intern</h3>
+                <h3>Penetration Tester Trainee/Intern</h3>
                 <div className="bio-text">
                   <p>
                     I'm a fourth-year Software Engineering student at Mae Fah Luang University with a dedicated focus on becoming a Penetration Tester. My background in web development and databases gives me a strong base for understanding how systems are built, and more importantly, how to test them securely. I've completed the CCNA training course on Udemy (course certificate) and am preparing for the ISC2 Certified in Cybersecurity (CC) exam.

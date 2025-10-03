@@ -173,22 +173,17 @@ p {
   transform: translateY(-2px);
 }
 
-/* Scrollbar Styles */
+/* Transparent Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #64b5f6 0%, #42a5f5 100%);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
+  background: transparent;
 }
 
 /* Selection Styles */

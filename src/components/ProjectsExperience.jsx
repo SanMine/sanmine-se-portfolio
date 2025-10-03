@@ -9,6 +9,7 @@ import oonjaiPdf from '../pdf/Oonjai.pdf';
 import labImage from '../assets/lab.png';
 import lab from '../pdf/OWASP_lab.pdf';
 import report from '../pdf/report.pdf';
+import lumiqImage from '../assets/Lumiq.png';
 
 const ProjectsExperience = () => {
   const projects = [
@@ -39,7 +40,7 @@ const ProjectsExperience = () => {
     {
       title: "Lumiq – Smart Dormitory Booking & Living Platform",
       description: "No-code management system built with Google Sheets and n8n automation. Developed a full-stack platform for room booking, online payments, and intelligent roommate matching. Implemented online deposits, digital contracts, and multilingual support.",
-      image: n8nImage,
+      image: lumiqImage,
       technologies: ["HTML", "Tailwind CSS", "Javascript", "Node.js", "MySQL", "n8n"],
       liveLink: null,
       codeLink: "https://github.com/SanMine/Lumiq"
