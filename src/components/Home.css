@@ -78,32 +78,6 @@
 
 
 
-/* Skill Badges */
-.skill-badges {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-top: 1.5rem;
-}
-
-.skill-badge {
-  background: linear-gradient(135deg, #1976D2, #64b5f6);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(25, 118, 210, 0.3);
-  will-change: transform;
-}
-
-.skill-badge:hover {
-  box-shadow: 0 6px 20px rgba(25, 118, 210, 0.4);
-  transform: translateY(-2px) scale(1.05);
-}
-
 /* Scroll Indicator */
 .scroll-indicator {
   position: absolute;
@@ -155,13 +129,6 @@
   color: #ffffff;
   font-weight: 400;
   margin: 0 0 0.75rem 0;
-}
-
-/* Mobile Animation Optimizations */
-@media (max-width: 768px) {
-  .skill-badge:hover {
-    transform: none; /* Disable hover transforms on mobile */
-  }
 }
 
 /* Mobile Responsive */

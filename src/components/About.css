@@ -196,14 +196,14 @@
 
 /* Base button styles with hover effects */
 .view-button.btn-primary {
-  background-color: #000080;
+  background-color: #368dff;
   color: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 128, 0.2);
 }
 
 .view-button.btn-primary:hover {
   background-color: #ffffff;
-  color: #000080;
+  color: #368dff;
   box-shadow: 0 8px 25px rgba(0, 0, 128, 0.3);
   transform: translateY(-3px) scale(1.02) translateZ(0);
 }

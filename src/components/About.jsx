@@ -10,6 +10,8 @@ import {
 } from '@heroicons/react/24/outline';
 import './About.css';
 import profileImage from '../assets/Profile.png';
+import resumePdf from '../pdf/Resume.pdf';
+import transcriptPdf from '../pdf/transcript.pdf';
 
 const About = () => {
   const handleViewPDF = (pdfUrl, title) => {
@@ -139,7 +141,7 @@ const About = () => {
               
               <div className="view-buttons-container">
                 <motion.button
-                  onClick={() => handleViewPDF('#', 'Resume')}
+                  onClick={() => handleViewPDF(resumePdf, 'Resume')}
                   className="view-button btn-primary"
                   data-testid="view-resume-btn"
                   whileHover={{ 
@@ -169,7 +171,7 @@ const About = () => {
                 </motion.button>
                 
                 <motion.button
-                  onClick={() => handleViewPDF('#', 'Transcript')}
+                  onClick={() => handleViewPDF(transcriptPdf, 'Transcript')}
                   className="view-button btn-secondary"
                   data-testid="view-transcript-btn"
                   whileHover={{ 

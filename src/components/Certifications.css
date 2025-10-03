@@ -70,7 +70,7 @@
 }
 
 .certification-card.completed {
-  border-left: 4px solid #64CCC5;
+  border-left: 4px solid #0f151d;
 }
 
 .certification-card.in-progress {
@@ -101,7 +101,7 @@
 }
 
 .cert-icon .icon.completed {
-  color: #64CCC5;
+  color: #0f151d;
 }
 
 .cert-icon .icon.in-progress {
@@ -118,13 +118,13 @@
 }
 
 .status-badge.completed {
-  background: rgba(100, 204, 197, 0.2);
-  color: #64CCC5;
+  background: #368dff3e;
+  color: #0f151d;
 }
 
 .status-badge.in-progress {
   background: rgba(239, 68, 68, 0.2);
-  color: #ef4444;
+  color: #0f151d;
 }
 
 .cert-content {
@@ -137,25 +137,19 @@
   font-family: 'Warbler Display', serif;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #051923;
+  color: #0f151d;
   margin-bottom: 0.5rem;
 }
 
 .cert-issuer {
   font-size: 1rem;
-  color: #64CCC5;
+  color: #ff8c00;
   font-weight: 500;
   margin-bottom: 0.3rem;
 }
 
-.cert-date {
-  font-size: 0.9rem;
-  color: #69BFFF;
-  margin-bottom: 1rem;
-}
-
 .cert-description {
-  color: #051923;
+  color: #0f151d;
   opacity: 0.8;
   line-height: 1.6;
   margin-bottom: 1.5rem;
@@ -169,19 +163,36 @@
   margin-bottom: 1.5rem;
 }
 
-.skill-tag {
-  background: white;
-  color: #051923;
-  padding: 0.4rem 0.8rem;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  border: 1px solid #E0E6ED;
-}
 
 .cert-actions {
   margin-top: auto;
   padding-top: 1rem;
+}
+btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #368dff;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #0a58bd;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(25, 118, 210, 0.3);
+}
+
+.btn .icon {
+  width: 18px;
+  height: 18px;
 }
 
 .view-cert-btn {
@@ -189,7 +200,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.8rem 1.2rem;
-  background: #1976D2;
+  background: #368dff;
   color: white;
   border: none;
   border-radius: 8px;
@@ -200,7 +211,7 @@
 }
 
 .view-cert-btn:hover {
-  background: #1565C0;
+  background: #0a58bd;
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(25, 118, 210, 0.3);
 }
@@ -272,7 +283,7 @@
 .close-btn .icon {
   width: 24px;
   height: 24px;
-  color: #051923;
+  color: #230505;
 }
 
 .modal-content {
@@ -295,33 +306,6 @@
   border-top: 1px solid #E0E6ED;
   background: #F7F9FC;
   text-align: center;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.btn-primary {
-  background: #1976D2;
-  color: white;
-}
-
-.btn-primary:hover {
-  background: #1565C0;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(25, 118, 210, 0.3);
-}
-
-.btn .icon {
-  width: 18px;
-  height: 18px;
 }
 
 /* Participation Certifications Section */

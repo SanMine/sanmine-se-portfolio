@@ -37,22 +37,7 @@ const Home = () => {
 
 
 
-  // Skill badges with stagger animation
-  const skillBadges = [];
-  
-  const badgeVariants = {
-    hidden: { scale: 0, opacity: 0 },
-    visible: (i) => ({
-      scale: 1,
-      opacity: 1,
-      transition: {
-        delay: 1.5 + (i * 0.1),
-        type: "spring",
-        stiffness: 100,
-        damping: 10
-      }
-    })
-  };
+
 
   // Scroll indicator animation
   const scrollIndicatorVariants = {
@@ -103,29 +88,6 @@ const Home = () => {
             transition={{ duration: 1, delay: 0.8 }}
           >
           </motion.p>
-
-          {/* Skill Badges */}
-          <motion.div 
-            className="skill-badges"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-          >
-            {skillBadges.map((skill, index) => (
-              <motion.span
-                key={skill}
-                className="skill-badge"
-                custom={index}
-                variants={badgeVariants}
-                initial="hidden"
-                animate="visible"
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {skill}
-              </motion.span>
-            ))}
-          </motion.div>
         </motion.div>
 
         {/* Scroll Indicator */}

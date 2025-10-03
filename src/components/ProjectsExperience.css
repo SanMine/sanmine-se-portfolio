@@ -1,7 +1,7 @@
 .projects-experience-container {
   padding: 3rem 0;
   background: #F7F9FC;
-  color: #051923;
+  color: #0f151d;
 }
 
 .projects-experience-content {
@@ -111,13 +111,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #051923;
+  color: #0f151d;
   text-decoration: none;
   transition: all 0.3s ease;
 }
 
 .project-link:hover {
-  background: #69BFFF;
+  background: #368dff;
   color: white;
   transform: scale(1.1);
 }
@@ -135,12 +135,12 @@
   font-family: 'Warbler Display', serif;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #051923;
+  color: #0f151d;
   margin-bottom: 0.8rem;
 }
 
 .project-content p {
-  color: #051923;
+  color: #0f151d;
   opacity: 0.8;
   line-height: 1.6;
   margin-bottom: 1rem;
@@ -154,160 +154,16 @@
 
 .tech-tag {
   background: #E0E6ED;
-  color: #051923;
+  color: #0f151d;
   padding: 0.3rem 0.8rem;
-  border-radius: 15px;
+  border-radius: 6px;
   font-size: 0.8rem;
   font-weight: 500;
-}
-
-/* Experience Section */
-.experience-section {
-  margin-top: 5rem;
-}
-
-.experience-timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  position: relative;
-}
-
-.experience-timeline::before {
-  content: '';
-  position: absolute;
-  left: 30px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(180deg, #69BFFF, #64CCC5);
-}
-
-.experience-item {
-  display: flex;
-  gap: 2rem;
-  position: relative;
-}
-
-.experience-icon {
-  width: 60px;
-  height: 60px;
-  background: white;
-  border: 3px solid #69BFFF;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  z-index: 2;
-}
-
-.experience-icon .icon {
-  width: 24px;
-  height: 24px;
-  color: #69BFFF;
-}
-
-.experience-content {
-  flex: 1;
-  background: white;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(5, 25, 35, 0.08);
-  border: 1px solid #E0E6ED;
-}
-
-.experience-header {
-  margin-bottom: 1rem;
-}
-
-.experience-header h3 {
-  font-family: 'Warbler Display', serif;
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #051923;
-  margin-bottom: 0.5rem;
-}
-
-.experience-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.experience-meta .company {
-  font-size: 1rem;
-  color: #64CCC5;
-  font-weight: 500;
-}
-
-.experience-meta .period {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  font-size: 0.9rem;
-  color: #69BFFF;
-}
-
-.calendar-icon {
-  width: 16px;
-  height: 16px;
-}
-
-.experience-description {
-  color: #051923;
-  opacity: 0.8;
-  line-height: 1.6;
-  margin-bottom: 1rem;
-}
-
-.experience-responsibilities {
-  list-style: none;
-  padding: 0;
-}
-
-.experience-responsibilities li {
-  position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: #051923;
-  opacity: 0.8;
-  line-height: 1.5;
-}
-
-.experience-responsibilities li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: #69BFFF;
-  font-weight: bold;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
   .projects-grid {
     grid-template-columns: 1fr;
-  }
-  
-  .experience-timeline::before {
-    left: 20px;
-  }
-  
-  .experience-item {
-    gap: 1rem;
-  }
-  
-  .experience-icon {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .experience-icon .icon {
-    width: 20px;
-    height: 20px;
-  }
-  
-  .experience-content {
-    padding: 1.5rem;
   }
 }
