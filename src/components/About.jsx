@@ -11,13 +11,15 @@ import {
 import './About.css';
 import profileImage from '../assets/about.png';
 // Import from public folder for better static asset handling
-const resumePdf = '/MyResume.pdf?v=2';
+const resumePdf = '/MyResume.pdf';
 const transcriptPdf = '/Transcript.pdf';
 
 
 const About = () => {
   const handleViewPDF = (pdfUrl, title) => {
-    window.open(pdfUrl, '_blank', 'noopener,noreferrer');
+    // Add timestamp cache-busting at click time for maximum freshness
+    const cacheBustedUrl = `${pdfUrl}?t=${Date.now()}&v=3`;
+    window.open(cacheBustedUrl, '_blank', 'noopener,noreferrer');
   };
 
   const personalDetails = [
