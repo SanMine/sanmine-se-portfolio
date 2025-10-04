@@ -9,9 +9,10 @@ import {
   PhoneIcon 
 } from '@heroicons/react/24/outline';
 import './About.css';
-import profileImage from '../assets/Profile.png';
-import resumePdf from '../pdf/Resume.pdf';
+import profileImage from '../assets/about.png';
+import resumePdf from '../pdf/resume.pdf';
 import transcriptPdf from '../pdf/transcript.pdf';
+
 
 const About = () => {
   const handleViewPDF = (pdfUrl, title) => {

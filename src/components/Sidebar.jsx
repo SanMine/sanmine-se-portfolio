@@ -18,7 +18,7 @@ import {
   BriefcaseIcon as BriefcaseIconSolid,
   Cog6ToothIcon as Cog6ToothIconSolid,
   AcademicCapIcon as AcademicCapIconSolid,
-  EnvelopeIcon as EnvelopeIconSolid
+  EnvelopeIcon as EnvelopeIconSolid,
 } from '@heroicons/react/24/solid';
 import './Sidebar.css';
 import Profile from '../assets/Profile.png';
