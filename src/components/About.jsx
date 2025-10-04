@@ -12,7 +12,7 @@ import './About.css';
 import profileImage from '../assets/about.png';
 // Import from public folder for better static asset handling
 const resumePdf = '/Resume.pdf';
-import transcriptPdf from '../pdf/transcript.pdf';
+const transcriptPdf = '/Transcript.pdf';
 
 
 const About = () => {
