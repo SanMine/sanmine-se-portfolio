@@ -10,7 +10,8 @@ import {
 } from '@heroicons/react/24/outline';
 import './About.css';
 import profileImage from '../assets/about.png';
-import resumePdf from '../pdf/resume.pdf';
+// Import from public folder for better static asset handling
+const resumePdf = '/Resume.pdf';
 import transcriptPdf from '../pdf/transcript.pdf';
 
 
