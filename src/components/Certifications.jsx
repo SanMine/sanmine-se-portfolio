@@ -8,13 +8,14 @@ import {
   EyeIcon
 } from '@heroicons/react/24/outline';
 import './Certifications.css';
-import ccnaPdf from '../pdf/CCNA_complete_cert.pdf';
 import ccnaImage from '../assets/ccnaImage.png';
-import CCPdf from '../pdf/CC.pdf';
-import JIWC from '../pdf/JIWC.pdf';
-import BrightTalk from '../pdf/brightTalk.pdf';
 import hackathon from '../assets/hackathon.png';
-import Ai from '../pdf/Ai.pdf';
+// Use public folder for PDFs to avoid build issues
+const ccnaPdf = '/CCNA_complete_cert.pdf';
+const CCPdf = '/CC.pdf';
+const JIWC = '/JIWC.pdf';
+const BrightTalk = '/brightTalk.pdf';
+const Ai = '/Ai.pdf';
 
 const Certifications = () => {
   const [selectedCert, setSelectedCert] = useState(null);

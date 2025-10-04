@@ -3,12 +3,13 @@ import { motion } from 'framer-motion';
 import { EyeIcon, CodeBracketIcon } from '@heroicons/react/24/outline';
 import './ProjectsExperience.css';
 import n8nImage from '../assets/n8n.png';
-import n8nPdf from '../pdf/n8n_work_flows.pdf';
 import oonjaiImage from '../assets/Oonjai_logo.png';
-import oonjaiPdf from '../pdf/Oonjai.pdf';
 import labImage from '../assets/lab.png';
-import lab from '../pdf/OWASP_lab.pdf';
-import report from '../pdf/report.pdf';
+// Use public folder for PDFs to avoid build issues
+const n8nPdf = '/n8n_work_flows.pdf';
+const oonjaiPdf = '/Oonjai.pdf';
+const lab = '/OWASP_lab.pdf';
+const report = '/Report.pdf';
 import lumiqImage from '../assets/Lumiq.png';
 
 const ProjectsExperience = () => {
