@@ -35,10 +35,6 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, [currentText, isDeleting, currentIndex, texts]);
 
-
-
-
-
   // Scroll indicator animation
   const scrollIndicatorVariants = {
     bounce: {
@@ -55,7 +51,6 @@ const Home = () => {
     <section className="home">
       <div className="hero-background" style={{ backgroundImage: `url(${Background})` }}>
         <div className="hero-overlay"></div>
-        
         
         <motion.div
           className="hero-content"
@@ -90,7 +85,7 @@ const Home = () => {
           </motion.p>
         </motion.div>
 
-        {/* Scroll Indicator */}
+        {/* Scroll Indicator - Always visible with bounce animation */}
         <motion.div 
           className="scroll-indicator"
           variants={scrollIndicatorVariants}

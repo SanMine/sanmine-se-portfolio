@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   HomeIcon,
@@ -8,7 +8,9 @@ import {
   Cog6ToothIcon,
   AcademicCapIcon,
   EnvelopeIcon,
-  PhoneIcon
+  PhoneIcon,
+  Bars3Icon,
+  XMarkIcon
 } from '@heroicons/react/24/outline';
 import { FaLine, FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { 
@@ -24,6 +26,100 @@ import './Sidebar.css';
 import Profile from '../assets/Profile.png';
 
 const Sidebar = ({ activeSection, scrollToSection }) => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Fix iOS viewport height issues with JavaScript
+  useEffect(() => {
+    const setViewportHeight = () => {
+      // Get the actual viewport height
+      const vh = window.innerHeight * 0.01;
+      // Set CSS custom property
+      document.documentElement.style.setProperty('--vh', `${vh}px`);
+      
+      // Also set actual viewport height for sidebar
+      const actualVh = window.innerHeight;
+      document.documentElement.style.setProperty('--actual-vh', `${actualVh}px`);
+    };
+
+    // Set on load
+    setViewportHeight();
+
+    // Set on resize and orientation change
+    window.addEventListener('resize', setViewportHeight);
+    window.addEventListener('orientationchange', () => {
+      // Delay for iOS to settle after orientation change
+      setTimeout(setViewportHeight, 500);
+    });
+
+    // iOS specific: listen for viewport changes
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', setViewportHeight);
+    }
+
+    return () => {
+      window.removeEventListener('resize', setViewportHeight);
+      window.removeEventListener('orientationchange', setViewportHeight);
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', setViewportHeight);
+      }
+    };
+  }, []);
+
+  // Fix Safari sidebar scrolling behavior
+  useEffect(() => {
+    const sidebarElement = document.querySelector('.sidebar');
+    if (!sidebarElement) return;
+
+    // Force scrolling to work consistently on Safari
+    const ensureScrolling = () => {
+      // Reset scroll behavior
+      sidebarElement.style.overflow = 'hidden';
+      sidebarElement.style.overflowY = 'auto';
+      sidebarElement.style.webkitOverflowScrolling = 'touch';
+      
+      // Force reflow to apply changes
+      sidebarElement.offsetHeight;
+    };
+
+    // Apply on mount
+    ensureScrolling();
+
+    // Reapply when navigating between sections
+    const handleScroll = () => {
+      // Debounce to avoid excessive calls
+      clearTimeout(window.sidebarScrollTimeout);
+      window.sidebarScrollTimeout = setTimeout(ensureScrolling, 100);
+    };
+
+    // Listen for main page scroll to maintain sidebar scrolling
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Also listen for touch events to maintain scrolling
+    const handleTouchStart = (e) => {
+      // Ensure sidebar can still be scrolled when touching it
+      if (sidebarElement.contains(e.target)) {
+        e.stopPropagation();
+      }
+    };
+
+    document.addEventListener('touchstart', handleTouchStart, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('touchstart', handleTouchStart);
+      clearTimeout(window.sidebarScrollTimeout);
+    };
+  }, []);
+
+  const toggleMobileMenu = (e) => {
+    e?.preventDefault();
+    e?.stopPropagation();
+    console.log('Toggle mobile menu clicked. Current state:', isMobileMenuOpen);
+    const newState = !isMobileMenuOpen;
+    setIsMobileMenuOpen(newState);
+    console.log('New state will be:', newState);
+  };
+
   // Enhanced animation variants
   const sidebarVariants = {
     hidden: { x: '-100%' },
@@ -75,6 +171,8 @@ const Sidebar = ({ activeSection, scrollToSection }) => {
         inline: 'nearest'
       });
     }
+    // Close mobile menu after navigation
+    setIsMobileMenuOpen(false);
   };
 
   const navigationItems = [
@@ -97,12 +195,44 @@ const Sidebar = ({ activeSection, scrollToSection }) => {
   ];
 
   return (
-    <motion.aside 
-      className="sidebar"
-      variants={sidebarVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <>
+      {/* Mobile Menu Button */}
+      <button 
+        className="mobile-menu-btn"
+        onClick={toggleMobileMenu}
+        aria-label="Toggle navigation menu"
+      >
+        <div className="hamburger-lines">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </button>
+
+      {/* Mobile Overlay */}
+      {isMobileMenuOpen && (
+        <div 
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'rgba(0,0,0,0.5)',
+            zIndex: 99997
+          }}
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
+      <aside 
+        className={`sidebar ${isMobileMenuOpen ? 'open' : ''}`}
+        style={{
+          zIndex: 99998,
+          transform: isMobileMenuOpen ? 'translateX(0)' : 'translateX(-100%)',
+          transition: 'transform 0.3s ease'
+        }}
+      >
         <motion.div 
           className="sidebar-header"
           initial={{ opacity: 0, y: 20 }}
@@ -213,7 +343,8 @@ const Sidebar = ({ activeSection, scrollToSection }) => {
       </motion.div>
 
 
-    </motion.aside>
+    </aside>
+    </>
   );
 };
 

@@ -3,20 +3,35 @@
   height: 100vh;
   position: relative;
   overflow: hidden;
-  background: #ffffff;
+  background: #0f151d; /* fallback background */
+  max-width: 100vw; /* Prevent horizontal overflow */
+}
+
+/* Ensure full viewport coverage on mobile */
+@media (max-width: 768px) {
+  .home {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    max-width: 100vw; /* Prevent horizontal overflow */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
 }
 
 .hero-background {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: flex-start;        /* Align content to the left */
   position: relative;
-  padding-left: 0;                /* Match sidebar width exactly */
   background-size: cover;             /* Make sure the image fills the area */
-  background-position: center;
+  background-position: center center; /* Center the image both horizontally and vertically */
   background-repeat: no-repeat;
+  background-attachment: scroll;      /* Better browser compatibility */
+  max-width: 100vw; /* Prevent horizontal overflow */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .hero-overlay {
@@ -29,13 +44,20 @@
   z-index: 1;
 }
 
+/* Reduce overlay on mobile to make background more visible */
+@media (max-width: 480px) {
+  .hero-overlay {
+    background: rgba(30, 30, 30, 0.3); /* Lighter overlay on mobile */
+  }
+}
+
 .hero-content {
   text-align: left;
   margin-left: 0;
   max-width: 700px;
   position: relative;
   z-index: 2;                   /* Flush with the content area */
-  padding-left: 4rem;
+  padding-left: 2rem;
 }
 
 .hero-title,
@@ -78,21 +100,24 @@
 
 
 
-/* Scroll Indicator */
+/* Scroll Indicator - Unified Component */
 .scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  cursor: pointer;
-  z-index: 3;
-  color: rgba(255, 255, 255, 0.8);
-  transition: all 0.3s ease;
-}
+    position: absolute;
+    bottom: 30px;
+    left: 50%; /* Center horizontally relative to container */
+    transform: translateX(-50%); /* Perfect center alignment */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    cursor: pointer;
+    animation: bounce 2s infinite;
+    z-index: 100;
+    /* Group arrow and text as one centered component */
+    text-align: center;
+    white-space: nowrap;
+  }
 
 .scroll-indicator:hover {
   color: white;
@@ -101,7 +126,8 @@
 
 .scroll-arrow {
   font-size: 1.5rem;
-  animation: bounce 2s infinite;
+  margin-bottom: 5px; /* Small gap between arrow and text */
+  line-height: 1;
 }
 
 .scroll-indicator span {
@@ -109,17 +135,18 @@
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
+  line-height: 1;
 }
 
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
   40% {
-    transform: translateY(-8px);
+    transform: translateX(-50%) translateY(-8px);
   }
   60% {
-    transform: translateY(-4px);
+    transform: translateX(-50%) translateY(-4px);
   }
 }
 
@@ -135,13 +162,25 @@
 @media (max-width: 768px) {
   .hero-background {
     padding-left: 20px;
-    justify-content: flex-start; /* Keep left alignment even on mobile */
+    padding-right: 20px;
+    justify-content: flex-start; /* Keep left alignment like desktop */
+    background-attachment: scroll; /* Better performance on mobile */
+    background-position: 80% center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh; /* Ensure full viewport height */
+    width: 100%;
+    height: 100vh;
+    max-width: 100vw; /* Prevent horizontal overflow */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
   }
   
   .hero-content {
     margin-left: 0;
-    text-align: left;
+    text-align: left; /* Keep left alignment like desktop */
     padding-left: 0;
+    max-width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
   }
   
   .hero-title {
@@ -157,32 +196,78 @@
   }
 }
 
+/* ============================================
+   FIXED MOBILE 480px - COMPLETE SOLUTION
+   ============================================ */
 @media (max-width: 480px) {
   .hero-background {
-    padding-left: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-attachment: scroll;
+    /* 🔧 FIX 1: Use cover instead of contain to avoid letterboxing */
+    background-size: cover;
+    /* 🔧 FIX 2: Use smart positioning to show the important part of image */
+    background-position: 80% center;
+    background-repeat: no-repeat;
+    /* 🔧 FIX 3: Keep dark background instead of white to match overlay */
+    background-color: #0f151d;
+    min-height: 100vh;
+    width: 100%;
+    height: 100vh;
+    justify-content: flex-start; /* Match desktop: align content to left */
+    align-items: center;
+    position: relative;
+    max-width: 100vw; /* Prevent horizontal overflow */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  
+  /* 🔧 FIX 4: Enhanced overlay for better text readability on mobile */
+  .hero-overlay {
+    background: linear-gradient(
+      135deg, 
+      rgba(15, 21, 29, 0.85) 0%, 
+      rgba(30, 30, 30, 0.4) 100%
+    );
   }
   
   .hero-content {
     margin-left: 0;
     padding-left: 0;
-    max-width: 90vw;
+    max-width: 95vw;
+    text-align: left;
+    /* Match desktop: no background, no border, no backdrop-filter */
+    background: none;
+    padding: 0;
+    border-radius: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    word-wrap: break-word; /* Ensure text wraps */
+    overflow-wrap: break-word; /* Ensure text wraps */
   }
-  
+    
   .hero-title {
     font-size: 2rem;
+    line-height: 1.2;
+    /* 🔧 FIX 6: Add text shadow for better readability */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   }
   
   .hero-subtitle {
     font-size: 1.2rem;
     white-space: normal;
     word-wrap: break-word;
+    /* 🔧 FIX 7: Add text shadow for better readability */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
   }
   
   .cursor {
     font-size: 1.2rem;
+    /* 🔧 FIX 8: Make cursor more visible */
+    color: #ff8c00;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
   }
   
   .hero-description {
     font-size: 0.9rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
   }
 }
