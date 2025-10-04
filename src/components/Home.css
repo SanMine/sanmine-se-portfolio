@@ -32,6 +32,19 @@
   background-attachment: scroll;      /* Better browser compatibility */
   max-width: 100vw; /* Prevent horizontal overflow */
   overflow-x: hidden; /* Prevent horizontal scrolling */
+  /* Smooth transition for background loading */
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Loading state - show background color while image loads */
+.hero-background.loading {
+  background-color: #0f151d; /* Dark fallback color */
+  opacity: 0.9;
+}
+
+/* Loaded state - full opacity with smooth fade-in */
+.hero-background.loaded {
+  opacity: 1;
 }
 
 .hero-overlay {

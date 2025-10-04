@@ -7,11 +7,19 @@ const Home = () => {
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [backgroundLoaded, setBackgroundLoaded] = useState(false);
   
   const texts = [
     "I'm a Software Engineering Student",
     "I'm an Aspiring Penetration Tester",
   ];
+
+  // Preload background image for faster loading
+  useEffect(() => {
+    const img = new Image();
+    img.onload = () => setBackgroundLoaded(true);
+    img.src = Background;
+  }, []);
 
   useEffect(() => {
     const tick = () => {
@@ -49,7 +57,10 @@ const Home = () => {
 
   return (
     <section className="home">
-      <div className="hero-background" style={{ backgroundImage: `url(${Background})` }}>
+      <div 
+        className={`hero-background ${backgroundLoaded ? 'loaded' : 'loading'}`} 
+        style={{ backgroundImage: backgroundLoaded ? `url(${Background})` : 'none' }}
+      >
         <div className="hero-overlay"></div>
         
         <motion.div
