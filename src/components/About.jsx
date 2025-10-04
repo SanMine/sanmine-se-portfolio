@@ -11,7 +11,7 @@ import {
 import './About.css';
 import profileImage from '../assets/about.png';
 // Import from public folder for better static asset handling
-const resumePdf = '/MyResume.pdf';
+const resumePdf = '/MyResume.pdf?v=2';
 const transcriptPdf = '/Transcript.pdf';
 
 
