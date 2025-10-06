@@ -26,7 +26,7 @@ const Certifications = () => {
       issuer: "Udemy",
       status: "completed",
       description: "Successfully completed the CCNA training course, gaining hands-on knowledge of networking fundamentals, IP addressing, subnetting, routing and switching concepts, network security, and troubleshooting techniques. This course provided a strong foundation for designing, configuring, and managing modern computer networks.",
-      image: ccnaImage,
+      image: ccnaPdf,
       certificate: ccnaPdf
     },
     {
@@ -34,7 +34,7 @@ const Certifications = () => {
       issuer: "ISC2",
       status: "completed",
       description: "Completed the ISC2 Certified in Cybersecurity (CC) training program, covering essential cybersecurity concepts including security principles, network security, access control, risk management, and incident response. Currently preparing to take the official certification exam to validate knowledge and skills.",
-      image: "/cert-ethical-hacking.png",
+      image: CCPdf,
       certificate: CCPdf
     },
       {
@@ -42,7 +42,7 @@ const Certifications = () => {
       issuer: "CBTU and Mahidol University",
       status: "completed",
       description: "Completed the AI for ALL program, gaining insight into the ethical use of artificial intelligence and its applications across diverse fields. The program included collaborative projects and real-world case studies, fostering practical skills in applying AI solutions responsibly.",
-      image: "/cert-network-security.png",
+      image: Ai,
       certificate: Ai
     },
       {
@@ -69,7 +69,7 @@ const Certifications = () => {
       issuer: "ISC2 BrightTalk",
       status: "completed",
       description: "Attended a live ISC2 BrightTalk briefing on the SSCP covering domain scope, exam blueprint, study resources, and career pathways. Clarified preparation strategy across access control, network security, incident response, risk, and operations.",
-      image: "/cert-intro-cybersecurity.png",
+      image: BrightTalk,
       certificate: BrightTalk
     },
     {
@@ -77,7 +77,7 @@ const Certifications = () => {
       issuer: "JIWC",
       status: "completed",
       description: "Participating in lectures and hands-on labs on AI for games (search, heuristics, pathfinding, RL). Built and tested a playable agent/bot; collaborated with cross-university teams for the competition submission.",
-      image: "/cert-intro-cybersecurity.png",
+      image: JIWC,
       certificate: JIWC
     },
     {
