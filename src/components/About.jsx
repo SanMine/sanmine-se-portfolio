@@ -79,13 +79,16 @@ const About = () => {
               </figure>
               
               <div className="about-content-text">
-                <h3>Penetration Tester Trainee/Intern</h3>
+                <h3>Software Engineer</h3>
                 <div className="bio-text">
                   <p>
-                    I'm a fourth-year Software Engineering student at Mae Fah Luang University with a dedicated focus on becoming a Penetration Tester. My background in web development and databases gives me a strong base for understanding how systems are built, and more importantly, how to test them securely. I've completed the CCNA training course on Udemy (course certificate) and am preparing for the ISC2 Certified in Cybersecurity (CC) exam.
+                    I'm SAI SAN MINE (Frank), a fourth-year Software Engineering student at Mae Fah Luang University with a deep passion for creating real-world software solutions. My learning journey has led me through full-stack development using technologies like HTML, CSS, JavaScript, React, Node.js, Java, and Flutter, supported by databases such as MySQL, MongoDB, and Firebase.
                   </p>
                   <p>
-                    I'm actively working through the TryHackMe Jr Penetration Tester path, practicing with tools like Burp Suite, Nmap, and Wireshark against labs such as OWASP Juice Shop and DVWA. My goal is to start as a Penetration Tester intern and keep leveling up through real assessments, write-ups, and continuous learning.
+                    I've worked on various academic and volunteer projects — from building automation tools to developing mobile and web applications — that strengthened my understanding of both front-end design and back-end logic. Along the way, I've explored tools like GitHub, Docker, and Postman, and applied project management principles based on the Software Development Life Cycle (SDLC).
+                  </p>
+                  <p>
+                    Though I'm still growing as a developer, I take pride in being curious, adaptable, and eager to learn from every challenge. My goal is to become a professional Software Engineer who builds secure, reliable, and fantastic software that makes a positive impact on people's lives.
                   </p>
                 </div>
               </div>
