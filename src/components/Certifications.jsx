@@ -121,7 +121,7 @@ const Certifications = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="section-title">Certifications</h2>
-          <p className="section-subtitle">Professional certifications and training in cybersecurity</p>
+          <p className="section-subtitle">Professional certifications and training</p>
         </motion.div>
 
         <motion.div

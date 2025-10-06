@@ -1,6 +1,6 @@
-# Sai San Mine - Cybersecurity Engineer Portfolio
+# Sai San Mine - Software Engineer Portfolio
 
-A modern, responsive personal portfolio website built with React and Vite, showcasing cybersecurity expertise and software engineering skills.
+A modern, responsive personal portfolio website built with React and Vite, showcasing software engineering expertise and full-stack development skills.
 
 ## 🚀 Features
 
@@ -31,7 +31,7 @@ A modern, responsive personal portfolio website built with React and Vite, showc
 2. **About**: Personal information, education details with downloadable resume/transcript
 3. **Skills**: Technical expertise organized by categories
 4. **Projects**: Project showcase with detailed descriptions and links
-5. **Services**: Cybersecurity services and expertise areas
+5. **Services**: Software engineering services and secure development expertise
 6. **Certifications**: Professional certifications and training
 7. **Contact**: Contact form, information, and social links
 

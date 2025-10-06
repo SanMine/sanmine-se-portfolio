@@ -12,8 +12,8 @@ const Services = () => {
   const services = [
     {
       icon: BugAntIcon,
-      title: 'Penetration Testing (Student/Trainee Level)',
-      description: 'I assist in identifying and validating common vulnerabilities in websites and applications, such as XSS, SQLi, and CSRF, using industry-standard tools like Burp Suite and OWASP ZAP.',
+      title: 'Security Testing & Vulnerability Assessment',
+      description: 'I identify and validate common vulnerabilities in web applications as part of secure software development, using tools like Burp Suite and OWASP ZAP to ensure robust application security.',
       features: [
         'Web Application Security Testing – Detect flaws in web apps.',
         'Network Scanning & Enumeration – Discover open ports and services safely with Nmap.',
@@ -73,7 +73,7 @@ const Services = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="section-title">Services</h2>
-          <p className="section-subtitle">Specialized cybersecurity services and secure development solutions</p>
+          <p className="section-subtitle">Specialized software engineering services and secure development solutions</p>
         </motion.div>
 
         <motion.div 

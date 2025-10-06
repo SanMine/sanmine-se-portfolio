@@ -12,8 +12,7 @@ const Home = () => {
   const [showPlaceholder, setShowPlaceholder] = useState(true);
   
   const texts = [
-    "I'm a Software Engineering Student",
-    "I'm an Aspiring Penetration Tester",
+    "I'm a Software Engineer",
   ];
 
   // Enhanced background preloading with multiple strategies

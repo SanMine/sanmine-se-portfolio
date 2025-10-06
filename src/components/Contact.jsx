@@ -149,7 +149,7 @@ const Contact = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="section-title">Contact Me</h2>
-          <p className="section-subtitle">Let's discuss your cybersecurity needs and how I can help secure your digital assets</p>
+          <p className="section-subtitle">Let’s talk about your software ideas and how I can help bring them to life through clean, efficient, and reliable code.</p>
         </motion.div>
 
         <div className="section-content contact-main">
@@ -161,9 +161,9 @@ const Contact = () => {
           >
             <h3>Get In Touch</h3>
             <p className="contact-description">
-              I'm always interested in discussing new opportunities in cybersecurity, 
-              secure development, and collaborative projects. 
-              Feel free to reach out!
+              I’m always open to discussing new opportunities in software development, 
+              full-stack projects, or collaborative tech ideas. Feel free to reach out.
+              I’d love to connect and create something amazing together!
             </p>
 
             <div className="contact-details">

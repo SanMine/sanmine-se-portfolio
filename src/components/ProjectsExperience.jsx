@@ -26,7 +26,7 @@ const ProjectsExperience = () => {
       title: "AI Assistant Chatbot",
       description: "Automated academic workflows: email handling, event scheduling, and PDF signing. Reduced manual tasks for professors and ensured student requests weren't missed. Applied workflow automation tools in a real-world academic setting.",
       image: n8nImage,
-      technologies: ["n8n", "Telegram Bot API", "Google Calendar API", "Gmail API", "DeepSeek API", "PDF Automation"],
+      technologies: ["n8n", "Telegram Bot API", "Google Calendar API", "Gmail API", "DeepSeek API", "PDF Automation", "Ollama API", "JavaScript"],
       liveLink: n8nPdf,
       codeLink: "https://github.com/SanMine/AI-Assistant-Chatbot"
     },
@@ -82,7 +82,7 @@ const ProjectsExperience = () => {
         >
           <div className="section-header">
             <h2 className="section-title">Projects</h2>
-            <p className="section-subtitle">Cybersecurity and development projects showcasing my technical skills</p>
+            <p className="section-subtitle">Software development and secure application projects showcasing my technical skills</p>
           </div>
 
           <div className="section-content projects-grid">
