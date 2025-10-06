@@ -10,7 +10,7 @@ import './Certifications.css';
 const ccnaPdf = '/CCNA_complete_cert.pdf';
 const CCPdf = '/CC.pdf';
 const JIWC = '/JIWC.pdf';
-const BrightTalk = '/brightTalk.pdf';
+const BrightTalk = '/BrightTalk.pdf';
 const Ai = '/Ai.pdf';
 const ccnaImage = '/ccnaImage.png';
 const hackathonImage = '/hackathon.png';
