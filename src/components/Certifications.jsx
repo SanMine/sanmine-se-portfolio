@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { 
   AcademicCapIcon, 
   ShieldCheckIcon, 
-  DocumentTextIcon,
-  XMarkIcon,
-  EyeIcon
+  DocumentTextIcon
 } from '@heroicons/react/24/outline';
 import './Certifications.css';
 // Use public folder for both PDFs and images to avoid build issues
@@ -18,7 +16,6 @@ const ccnaImage = '/ccnaImage.png';
 const hackathonImage = '/hackathon.png';
 
 const Certifications = () => {
-  const [selectedCert, setSelectedCert] = useState(null);
 
   const certifications = [
     {
@@ -110,29 +107,9 @@ const Certifications = () => {
     }
   };
 
-  const modalVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-    exit: { opacity: 0 }
-  };
 
-  const openCertificate = (cert) => {
-    if (cert.certificate) {
-      setSelectedCert(cert);
-      // Small delay to ensure modal is rendered before trying to load PDF
-      setTimeout(() => {
-        // Try to trigger PDF load in iframe
-        const iframe = document.querySelector('.cert-preview iframe');
-        if (iframe) {
-          iframe.src = `${cert.certificate}#view=FitH&toolbar=0`;
-        }
-      }, 100);
-    }
-  };
 
-  const closeCertificate = () => {
-    setSelectedCert(null);
-  };
+
 
   return (
     <div className="certifications-container section" id="certifications">
@@ -186,9 +163,9 @@ const Certifications = () => {
                       className="view-cert-btn"
                       onClick={() => {
                         if (cert.certificate) {
-                          openCertificate(cert);
+                          window.open(cert.certificate, '_blank', 'noopener,noreferrer');
                         } else if (cert.image) {
-                          window.open(cert.image, '_blank');
+                          window.open(cert.image, '_blank', 'noopener,noreferrer');
                         }
                       }}
                     >
@@ -252,9 +229,9 @@ const Certifications = () => {
                         className="view-cert-btn"
                         onClick={() => {
                           if (cert.certificate) {
-                            openCertificate(cert);
+                            window.open(cert.certificate, '_blank', 'noopener,noreferrer');
                           } else if (cert.image) {
-                            window.open(cert.image, '_blank');
+                            window.open(cert.image, '_blank', 'noopener,noreferrer');
                           }
                         }}
                       >
@@ -269,87 +246,7 @@ const Certifications = () => {
           </motion.div>
         </motion.div>
 
-        {/* Certificate Modal */}
-        <AnimatePresence>
-          {selectedCert && (
-            <motion.div
-              className="cert-modal-overlay"
-              variants={modalVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              onClick={closeCertificate}
-            >
-              <motion.div
-                className="cert-modal"
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.8, opacity: 0 }}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <div className="modal-header">
-                  <h3>{selectedCert.title}</h3>
-                  <button className="close-btn" onClick={closeCertificate}>
-                    <XMarkIcon className="icon" />
-                  </button>
-                </div>
-                <div className="modal-content">
-                  <div className="cert-preview">
-                    <div className="pdf-preview-container">
-                      <iframe
-                        src={`${selectedCert.certificate}#view=FitH`}
-                        title={`${selectedCert.title} Certificate`}
-                        width="100%"
-                        height="500"
-                        style={{
-                          border: 'none',
-                          borderRadius: '8px',
-                          backgroundColor: '#f5f5f5'
-                        }}
-                        onError={(e) => {
-                          // If iframe fails, hide it and show fallback message
-                          e.target.style.display = 'none';
-                          const fallback = e.target.nextElementSibling;
-                          if (fallback) fallback.style.display = 'block';
-                        }}
-                      />
-                      <div 
-                        className="pdf-fallback"
-                        style={{
-                          display: 'none',
-                          textAlign: 'center',
-                          padding: '60px 20px',
-                          backgroundColor: '#f8f9fa',
-                          borderRadius: '8px',
-                          border: '2px dashed #dee2e6'
-                        }}
-                      >
-                        <DocumentTextIcon style={{ width: '48px', height: '48px', margin: '0 auto 16px', color: '#6c757d' }} />
-                        <p style={{ color: '#6c757d', marginBottom: '16px' }}>
-                          PDF preview not available in this browser.
-                        </p>
-                        <p style={{ color: '#495057', fontSize: '14px' }}>
-                          Click "Open in New Tab" below to view the certificate.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="modal-actions">
-                    <a
-                      href={selectedCert.certificate}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-primary"
-                    >
-                      <EyeIcon className="icon" />
-                      Open in New Tab
-                    </a>
-                  </div>
-                </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+
       </div>
     </div>
   );
