@@ -119,6 +119,14 @@ const Certifications = () => {
   const openCertificate = (cert) => {
     if (cert.certificate) {
       setSelectedCert(cert);
+      // Small delay to ensure modal is rendered before trying to load PDF
+      setTimeout(() => {
+        // Try to trigger PDF load in iframe
+        const iframe = document.querySelector('.cert-preview iframe');
+        if (iframe) {
+          iframe.src = `${cert.certificate}#view=FitH&toolbar=0`;
+        }
+      }, 100);
     }
   };
 
@@ -287,12 +295,44 @@ const Certifications = () => {
                 </div>
                 <div className="modal-content">
                   <div className="cert-preview">
-                    <iframe
-                      src={selectedCert.certificate}
-                      title={`${selectedCert.title} Certificate`}
-                      width="100%"
-                      height="500"
-                    />
+                    <div className="pdf-preview-container">
+                      <iframe
+                        src={`${selectedCert.certificate}#view=FitH`}
+                        title={`${selectedCert.title} Certificate`}
+                        width="100%"
+                        height="500"
+                        style={{
+                          border: 'none',
+                          borderRadius: '8px',
+                          backgroundColor: '#f5f5f5'
+                        }}
+                        onError={(e) => {
+                          // If iframe fails, hide it and show fallback message
+                          e.target.style.display = 'none';
+                          const fallback = e.target.nextElementSibling;
+                          if (fallback) fallback.style.display = 'block';
+                        }}
+                      />
+                      <div 
+                        className="pdf-fallback"
+                        style={{
+                          display: 'none',
+                          textAlign: 'center',
+                          padding: '60px 20px',
+                          backgroundColor: '#f8f9fa',
+                          borderRadius: '8px',
+                          border: '2px dashed #dee2e6'
+                        }}
+                      >
+                        <DocumentTextIcon style={{ width: '48px', height: '48px', margin: '0 auto 16px', color: '#6c757d' }} />
+                        <p style={{ color: '#6c757d', marginBottom: '16px' }}>
+                          PDF preview not available in this browser.
+                        </p>
+                        <p style={{ color: '#495057', fontSize: '14px' }}>
+                          Click "Open in New Tab" below to view the certificate.
+                        </p>
+                      </div>
+                    </div>
                   </div>
                   <div className="modal-actions">
                     <a
