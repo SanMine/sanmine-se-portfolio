@@ -131,16 +131,50 @@
 }
 
 /* Responsive Design for About Me Card */
+/* Large tablets and small desktops */
+@media (max-width: 1024px) {
+  .about-me-card {
+    gap: 2.5rem;
+    padding: 2.2rem;
+  }
+  
+  .about-content-text h3 {
+    font-size: 1.5rem;
+  }
+  
+  .about-content-text .bio-text p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+}
+
+/* Tablets */
 @media (max-width: 768px) {
   .about-me-card {
     grid-template-columns: 1fr;
     gap: 2rem;
     padding: 2rem;
+    min-height: auto;
   }
   
   .portrait-frame {
     max-width: 280px;
     margin: 0 auto;
+    max-height: 350px;
+    min-height: 280px;
+  }
+  
+  .about-content-text h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+    text-align: center;
+  }
+  
+  .about-content-text .bio-text p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    text-align: center;
   }
 }
 
@@ -273,9 +307,70 @@
   .about-content {
     padding: 0 1rem;
   }
+  
+  /* Section headers responsive */
+  .about-main-section .section-header .section-title {
+    font-size: clamp(2rem, 6vw, 2.8rem);
+  }
+  
+  .about-main-section .section-header .section-subtitle {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+  }
+  
+  .education-section .section-header h3 {
+    font-size: 1.7rem;
+  }
+  
+  .education-section .section-header p {
+    font-size: 1rem;
+  }
+  
+  /* Education card responsive */
+  .education-card .bg-white {
+    padding: 1.5rem;
+  }
+  
+  .text-base {
+    font-size: 0.95rem;
+  }
+  
+  .space-y-4 > * + * {
+    margin-top: 0.8rem;
+  }
 }
 
+/* Small mobile devices */
 @media (max-width: 480px) {
+  .about-container {
+    padding: 1.5rem 0;
+  }
+  
+  .about-content {
+    padding: 0 0.8rem;
+  }
+  
+  .about-me-card {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .portrait-frame {
+    max-width: 240px;
+    max-height: 300px;
+    min-height: 240px;
+  }
+  
+  .about-content-text h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+  
+  .about-content-text .bio-text p {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+  }
+  
   .view-buttons-container {
     flex-direction: column;
     gap: 0.8rem;
@@ -284,6 +379,88 @@
   .view-button {
     width: 100%;
     padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  
+  /* Section headers for small screens */
+  .about-main-section .section-header .section-title {
+    font-size: clamp(1.8rem, 8vw, 2.2rem);
+  }
+  
+  .about-main-section .section-header .section-subtitle {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+  }
+  
+  .education-section .section-header h3 {
+    font-size: 1.5rem;
+  }
+  
+  .education-section .section-header p {
+    font-size: 0.95rem;
+  }
+  
+  /* Education card for small screens */
+  .education-card .bg-white {
+    padding: 1.2rem;
+  }
+  
+  .text-base {
+    font-size: 0.9rem;
+  }
+  
+  .py-3 {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+}
+
+/* Very small devices */
+@media (max-width: 360px) {
+  .about-container {
+    padding: 1rem 0;
+  }
+  
+  .about-content {
+    padding: 0 0.5rem;
+  }
+  
+  .about-me-card {
+    padding: 1.2rem;
+    gap: 1.2rem;
+  }
+  
+  .portrait-frame {
+    max-width: 200px;
+    max-height: 250px;
+    min-height: 200px;
+  }
+  
+  .about-content-text h3 {
+    font-size: 1.1rem;
+  }
+  
+  .about-content-text .bio-text p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  
+  .view-button {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Education card for very small screens */
+  .education-card .bg-white {
+    padding: 1rem;
+  }
+  
+  .text-base {
+    font-size: 0.85rem;
+  }
+  
+  .w-5, .h-5 {
+    width: 1rem;
+    height: 1rem;
   }
 }
 
