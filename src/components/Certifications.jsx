@@ -8,14 +8,14 @@ import {
   EyeIcon
 } from '@heroicons/react/24/outline';
 import './Certifications.css';
-import ccnaImage from '../assets/ccnaImage.png';
-import hackathon from '../assets/hackathon.png';
-// Use public folder for PDFs to avoid build issues
+// Use public folder for both PDFs and images to avoid build issues
 const ccnaPdf = '/CCNA_complete_cert.pdf';
 const CCPdf = '/CC.pdf';
 const JIWC = '/JIWC.pdf';
 const BrightTalk = '/brightTalk.pdf';
 const Ai = '/Ai.pdf';
+const ccnaImage = '/ccnaImage.png';
+const hackathonImage = '/hackathon.png';
 
 const Certifications = () => {
   const [selectedCert, setSelectedCert] = useState(null);
@@ -85,7 +85,7 @@ const Certifications = () => {
       issuer: "Mae Fah Luang University",
       status: "completed",
       description: "Mentored junior teams on software architecture, SDLC, and Business Model Canvas (BMC); supported health-focused web app design, prototyping, and demo preparation.",
-      image: hackathon
+      image: hackathonImage
     }
   ];
 
