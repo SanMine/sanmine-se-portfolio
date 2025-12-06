@@ -49,8 +49,8 @@ const ProjectsExperience = () => {
       codeLink: "https://github.com/SanMine/Lumiq"
     },
     {
-      title: "StandUp – AI-Powered Career Development Platform",
-      description: "StandUp is a comprehensive career development platform and dual-sided marketplace that connects students with internships and employers with talent. Beyond a standard job board, it leverages Google Gemini AI for intelligent job matching and resume analysis, while supporting students with tools for portfolio building, application tracking, mentor booking, and learning resources.",
+      title: "StandUP – AI-Powered Career Development Platform",
+      description: "StandUP is a comprehensive career development platform and dual-sided marketplace that connects students with internships and employers with talent. Beyond a standard job board, it leverages Google Gemini AI for intelligent job matching and resume analysis, while supporting students with tools for portfolio building, application tracking, mentor booking, and learning resources.",
       image: standupImage,
       technologies: ["React (Vite)", "Tailwind CSS", "JavaScript", "Node.js (Express)", "MongoDB", "Groq API"],
       liveLink: "https://www.careerstandup.com/",
