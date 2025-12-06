@@ -11,6 +11,8 @@ const oonjaiPdf = '/Oonjai.pdf';
 const lab = '/OWASP_lab.pdf';
 const report = '/Report.pdf';
 import lumiqImage from '../assets/Lumiq.png';
+import standupImage from '../assets/Standup.png';
+import nexlogImage from '../assets/Nexlog.png';
 
 const ProjectsExperience = () => {
   const projects = [
@@ -39,12 +41,28 @@ const ProjectsExperience = () => {
       codeLink: "https://github.com/SanMine/Oonjai_app"
     },
     {
-      title: "Lumiq – Smart Dormitory Booking & Living Platform",
-      description: "No-code management system built with Google Sheets and n8n automation. Developed a full-stack platform for room booking, online payments, and intelligent roommate matching. Implemented online deposits, digital contracts, and multilingual support.",
+      title: "Lumiq – Smart Dormitory Booking & Roommate Matching Platform",
+      description: "LUMIQ is a comprehensive web application that revolutionizes the dormitory search and roommate matching experience for students and young professionals. It combines advanced dorm search functionalities with AI-powered personality-based roommate matching, real-time chat, price calculation tools, and comprehensive admin management capabilities.",
       image: lumiqImage,
-      technologies: ["HTML", "Tailwind CSS", "Javascript", "Node.js", "MySQL", "n8n"],
-      liveLink: null,
+      technologies: ["React (Vite)", "Tailwind CSS", "TypeScript", "Node.js (Express)", "MongoDB", "Groq API"],
+      liveLink: "https://www.lumiq-thailand.com/",
       codeLink: "https://github.com/SanMine/Lumiq"
+    },
+    {
+      title: "StandUp – AI-Powered Career Development Platform",
+      description: "StandUp is a comprehensive career development platform and dual-sided marketplace that connects students with internships and employers with talent. Beyond a standard job board, it leverages Google Gemini AI for intelligent job matching and resume analysis, while supporting students with tools for portfolio building, application tracking, mentor booking, and learning resources.",
+      image: standupImage,
+      technologies: ["React (Vite)", "Tailwind CSS", "JavaScript", "Node.js (Express)", "MongoDB", "Groq API"],
+      liveLink: "https://www.careerstandup.com/",
+      codeLink: "https://github.com/SanMine/StandUP"
+    },
+    {
+      title: "Nexlog - Log management System",
+      description: "Nexlog is a next-generation log management and security intelligence platform designed to centralize, normalize, and analyze security data. Built as a multi-tenant SaaS application, it allows different organizations to securely store and view their own log data within a unified system. ",
+      image: nexlogImage,
+      technologies: ["React (Vite)", "Tailwind CSS", "TypeScript", "Node.js (Express)", "MongoDB"],
+      liveLink: "https://nexlog-six.vercel.app/",
+      codeLink: "https://github.com/SanMine/log-management-system-intern"
     }
   ];
 
